@@ -8,4 +8,8 @@ Dois testes novos de integração (imagem/pastas e compartilhamento) dependem do
 
 Simplificações por prazo: sem árvore de pastas, edição clínica, DICOM, diagnóstico, validação BR Core completa, template personalizado ou nova inferência para PDF. Resultados antigos mantêm as limitações clínicas da revisão 05.
 
-Próxima ação: docs/tasks/06-prototype-finish.md, sem novo ciclo de planejamento.
+Fechamento local: sincronização fast-forward concluída; dependências já instaladas. Migração 0003 aplicada, seed executado e quatro exemplos importados idempotentemente a partir de resultados salvos. Nenhuma chamada Google e ledger Gemini preservado.
+
+`scripts/run_tests.py`: **19 passed, 11 subtests passed in 9.08s**. `node --check web/app.js` e `git diff --check`: OK. Uvicorn iniciado em `http://127.0.0.1:8000`; `/` e `/health` responderam HTTP 200. Fluxos de exportação, imagem, pastas e compartilhamento exercitados pela suíte; caminhada manual do navegador não realizada.
+
+Pronto para revisão do protótipo. Não iniciar próxima tarefa.
