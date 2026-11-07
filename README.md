@@ -22,6 +22,8 @@ Use senhas fortes para as duas contas demo em `DEMO_OWNER_PASSWORD` e
 `APP_ORIGIN` exatamente como a origem usada no navegador. Em HTTPS, defina
 `SESSION_COOKIE_SECURE=true`.
 
+Para instalação e criação do usuário/bancos, siga [PostgreSQL local](docs/POSTGRES_LOCAL.md).
+
 Execute as migrações e crie as contas somente após configurar o banco:
 
 ```powershell
@@ -45,9 +47,10 @@ http://127.0.0.1:8000/health para `{"status":"ok"}`. O endpoint é público e
 indica apenas que o processo está vivo; não verifica prontidão de banco ou Google.
 Encerre o servidor com Ctrl+C.
 
-Para testar, defina `TEST_DATABASE_URL` no ambiente do processo. O teste usa
-somente o banco terminado em `_test`, em schema temporário:
+Para testar, configure `TEST_DATABASE_URL` em `.env` e use o launcher abaixo.
+Ele carrega as configurações sem exibi-las; variáveis já exportadas prevalecem.
+Os testes continuam usando somente o banco terminado em `_test`, em schema temporário:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest tests/test_auth.py tests/test_health.py -q
+.\.venv\Scripts\python.exe scripts/run_tests.py
 ```

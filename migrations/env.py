@@ -1,6 +1,9 @@
 """Ambiente Alembic com conexão injetável para testes isolados."""
 
 import os
+from pathlib import Path
+
+from dotenv import load_dotenv
 
 from alembic import context
 from sqlalchemy import create_engine
@@ -18,6 +21,7 @@ def run_migrations_online() -> None:
         with context.begin_transaction():
             context.run_migrations()
         return
+    load_dotenv(Path(__file__).resolve().parents[1] / ".env", override=False)
     url = os.getenv("DATABASE_URL")
     if not url:
         raise RuntimeError("Configure DATABASE_URL para executar migrações.")

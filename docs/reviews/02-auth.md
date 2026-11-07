@@ -1,9 +1,13 @@
 # Revisão 02 — autenticação demo
 
-Implementação disponível; integração PostgreSQL pendente. Adicionados modelos `User` e `AuthSession`, migração Alembic, dependência PostgreSQL, Argon2id, seed idempotente e rotas `/auth/login`, `/auth/me` e `/auth/logout`. Login e logout exigem `Origin` exatamente igual a `APP_ORIGIN`. Sessões usam token aleatório no cookie HttpOnly e apenas seu SHA-256 no banco; logout revoga a sessão. `/health` permanece independente do banco.
+**Implementação disponível; integração PostgreSQL pendente.**
 
-Arquivos: `app/main.py`, `app/db.py`, `app/models.py`, `app/security.py`, `app/auth.py`, `app/seed.py`, `migrations/env.py`, `migrations/versions/0001_demo_auth.py`, `alembic.ini`, `requirements.txt`, `.env.example`, `README.md`, `docs/STATUS.md` e este relatório.
+Worker: commit adfd1302a52ceed81845e899c94271c678b12da1. Entregou modelos User/AuthSession, Alembic, PostgreSQL/psycopg, Argon2id, seed idempotente e login/me/logout. Cookie HttpOnly com duração de oito horas; token aleatório, apenas SHA-256 persistido; origem exata obrigatória nos POSTs.
 
-Verificação: dependências instaladas na `.venv`; compilação e importação OK; Argon2id e `/health` verificados localmente. `python -m pytest tests/test_auth.py tests/test_health.py -q`: um teste health aprovado, cinco erros de setup auth porque falta `TEST_DATABASE_URL` para banco PostgreSQL separado terminado em `_test`. `git diff --check` sem erros. Os testes auth permanecem não verificados. Migração e seed não executados por falta de banco configurado. Nenhuma chamada Google.
+Verificação reportada pelo worker: dependências instaladas; importação, compilação, Argon2id e health OK. Pytest: um health aprovado e cinco erros de setup auth por TEST_DATABASE_URL ausente. Migração e seed não executados. Nenhuma chamada Google.
 
-Próximo passo: configurar banco de testes e executar novamente o conjunto prescrito antes de aprovar a integração. Não iniciar 03.
+Revisão estática do orquestrador em 07/11/2026: corrigido defeito no comando de migração, que não carregava DATABASE_URL de .env conforme README. Adicionados scripts/run_tests.py para carregar configuração antes do pytest e docs/POSTGRES_LOCAL.md com criação dos bancos separados. Testes originais preservados.
+
+Validação do orquestrador: sintaxe dos dois arquivos Python modificados aprovada. Não executou integração PostgreSQL, migração ou seed; não confirma execução Windows.
+
+Próximo passo: sincronizar, seguir docs/POSTGRES_LOCAL.md e executar migração, seed e scripts/run_tests.py. Atualizar este relatório com resultados reais e publicar em dev/foundation. Integração ainda não aprovada; não iniciar 03.
