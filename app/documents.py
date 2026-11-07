@@ -8,7 +8,7 @@ from uuid import UUID, uuid4
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, Response, UploadFile
 from pydantic import BaseModel
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
 from app.auth import COOKIE
@@ -16,7 +16,7 @@ from app.conversion import gemini_convert, gemini_convert_file
 from app.db import _session_factory, get_db
 from app.extraction import extract, normalize_jpeg, pdf_pages
 from app.fhir import validate_bundle, normalize_bundle_ids
-from app.models import AuthSession, Document, User
+from app.models import AuthSession, Document, ShareLink, User
 from app.security import token_digest
 from app.exports import imaging_bundle, IMAGE_NOTICE
 
@@ -180,5 +180,39 @@ def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jo
             raise HTTPException(409, "JSON ainda não disponível.")
         return Response(json.dumps(doc.fhir_payload, ensure_ascii=False), media_type="application/json",
                         headers={"Content-Disposition": f'attachment; filename="{ident}.json"'})
+
+    @router.delete("/{ident}", status_code=204, dependencies=[Depends(check_origin)])
+    def delete_document(ident: UUID, db: Session = Depends(get_db), owner: User = Depends(user)):
+        doc = db.scalar(select(Document).where(
+            Document.id == ident, Document.user_id == owner.id,
+        ).with_for_update())
+        if doc is None:
+            raise HTTPException(404, "Documento não encontrado.")
+        if doc.status not in {"ready", "error"}:
+            raise HTTPException(409, "Aguarde o processamento terminar antes de excluir.")
+        path = Path(doc.storage_path)
+        expected = root / str(owner.id) / f"{doc.id}.{doc.file_format}"
+        if path.is_symlink() or not path.resolve().is_relative_to(root) or path.resolve() != expected.resolve():
+            raise HTTPException(409, "Não foi possível confirmar o arquivo deste documento.")
+        # O original é limitado a 10 MB. Conserva uma cópia em memória para
+        # restaurá-lo se a transação falhar depois da remoção física.
+        original = None
+        removed = False
+        try:
+            if path.exists():
+                original = path.read_bytes()
+            db.execute(delete(ShareLink).where(ShareLink.document_id == ident))
+            db.delete(doc)
+            db.flush()
+            if original is not None:
+                path.unlink()
+                removed = True
+            db.commit()
+        except Exception:
+            db.rollback()
+            if removed:
+                path.write_bytes(original)
+            raise HTTPException(503, "Não foi possível excluir o documento. Tente novamente.") from None
+        return Response(status_code=204)
 
     return router

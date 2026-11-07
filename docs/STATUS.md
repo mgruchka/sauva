@@ -1,9 +1,11 @@
 # Estado
-- Branch: dev/foundation.
+- Branch: prototipo-v2.
 - Implementados: autenticação demo, Texto PDF/JPEG -> Gemini/FHIR, OCR multimodal, imagem médica como anexo sem diagnóstico, original privado, JSON/PDF local, pastas planas, compartilhamento de resgate único e interface.
 - Exemplos textuais normalizados disponíveis; importação idempotente coloca os quatro exemplos em demo1 sem novas chamadas Google nem alteração do ledger.
 - Verificado pelo orquestrador: sete testes + sete subtestes, quatro PDFs, compilação Python/JS, startup/assets/health, compilação SQL das três migrações.
 - Tarefa 06 executada localmente: migração 0003, seed e importação idempotente dos quatro exemplos concluídos sem chamadas Google nem alteração do ledger.
 - `scripts/run_tests.py`: **19 passed, 11 subtests passed in 9.08s**. `node --check web/app.js` e `git diff --check`: OK.
 - Uvicorn iniciado em `http://127.0.0.1:8000`; `/` e `/health` responderam HTTP 200. Caminhada manual de navegador não realizada; os fluxos integrados estão cobertos pelos testes.
-- Próxima ação: revisão do protótipo. Não iniciar tarefa posterior.
+- Exclusão de documentos: botão Excluir com confirmação, DELETE autenticado com Origin e proprietário; remove original, dados processados e compartilhamentos. Permitida para ready/error; queued/processing retornam 409. Falha na remoção física desfaz a transação; original ausente não impede excluir o registro.
+- Verificação da exclusão: três testes novos com PostgreSQL isolado e adaptadores simulados; suíte completa **22 passed, 11 subtests passed in 20.19s**. `node --check web/app.js` e `git diff --check`: OK. Nenhuma chamada Google, nenhum documento operacional excluído nesta implementação.
+- Próxima ação: revisar a exclusão pela interface local. Alterações em app/documents.py, web/app.js, scripts/run_tests.py e tests/test_delete_documents.py.

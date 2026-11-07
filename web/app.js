@@ -45,6 +45,15 @@ function render() {
       const name = prompt('Novo nome', doc.name); if (!name) return;
       await request(`/documents/${doc.id}`, json('PATCH', { name })); await refresh();
     });
+    if (['ready', 'error'].includes(doc.status)) {
+      button(actions, 'Excluir', async () => {
+        if (!confirm(`Excluir definitivamente "${doc.name}"? O original, os dados processados e os acessos compartilhados serão removidos. Esta ação não pode ser desfeita.`)) return;
+        await request(`/documents/${doc.id}`, { method: 'DELETE' });
+        $('share-output').hidden = true; $('share-url').value = ''; $('share-code').value = '';
+        message('Documento excluído.');
+        await refresh();
+      });
+    }
     const move = document.createElement('select'); move.setAttribute('aria-label', 'Mover documento para pasta');
     move.append(option('', 'Sem pasta'), ...folders.map(f => option(f.id, f.name))); move.value = doc.folder_id || '';
     move.onchange = async () => { try { await request(`/documents/${doc.id}/folder`, json('PATCH', { folder_id: move.value || null })); await refresh(); } catch (error) { move.value = doc.folder_id || ''; message(error.message); } };
