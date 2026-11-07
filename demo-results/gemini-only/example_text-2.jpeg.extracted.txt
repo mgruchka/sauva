@@ -1,0 +1,12 @@
+PRONTUÁRIO DO PACIENTE
+- Instituição: Hospital Santa Rosa
+- Data de emissão: 09/09/2024
+IDENTIFICAÇÃO
+- Nome Completo: Julia Silva de Oliveira
+- Sexo: Feminino
+- CPF: 37122457840
+CONSULTA/EVOLUÇÃO
+- Data: 07/09/2024
+- Queixa: Paciente relata dor constante de enxaqueca sem melhora mesmo com uso contínuo de medicação.
+PROFISSIONAL RESPONSÁVEL (Médico)
+- Nome: Maria Clara Gonçalves Dias.
