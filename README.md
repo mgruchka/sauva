@@ -1,7 +1,8 @@
 # SAÚVA
 
 Protótipo brasileiro para registros de saúde. A autenticação demo exige PostgreSQL;
-uploads e integrações Google ainda não estão implementados.
+documentos PDF/JPEG de texto ficam em armazenamento local. Adaptadores Google
+estão preparados, mas chamadas reais aguardam revisão dos prompts.
 
 ## Ambiente local (PowerShell)
 
@@ -35,6 +36,21 @@ As contas são `demo1@sauva.example` e `demo2@sauva.example`. Envie email e
 senha em JSON para `POST /auth/login`, com header `Origin` igual a `APP_ORIGIN`.
 `GET /auth/me` consulta a sessão; `POST /auth/logout` a revoga e também exige
 esse header. O cookie é HttpOnly e expira em oito horas.
+
+## Documentos de texto
+
+Na tela inicial, entre com uma conta demo, envie PDF/JPEG de até 10 MB (PDF
+com até 10 páginas), acompanhe o status e baixe o JSON quando estiver pronto.
+A validação é estrutural: conformidade BR Core e correção clínica ainda não
+foram verificadas. Originais ficam em `uploads/`, fora do Git. A fila é local
+e serial; reiniciar o servidor interrompe pendências sem repetir chamadas.
+Use um único worker do Uvicorn.
+
+OCR usa Vision e conversão usa Gemini em duas etapas. Para chamada real,
+revise `prompts/`, configure credenciais e modelo no servidor e ative
+`ENABLE_REAL_GOOGLE=true` e `FHIR_PROMPT_APPROVED=true`. Não ative as flags
+antes da revisão. Um smoke futuro deve usar documento sintético de uma página,
+sem retries (até uma chamada Vision e duas Gemini); não foi executado.
 
 ## Executar e verificar
 

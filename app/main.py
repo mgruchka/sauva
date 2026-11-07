@@ -1,14 +1,19 @@
 """Aplicação executável sem serviços externos."""
 
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.auth import router_for
+from app.documents import router_for as documents_router
 
 
-def create_app(*, database_url: str | None = None, allowed_origin: str | None = None, cookie_secure: bool | None = None) -> FastAPI:
+def create_app(*, database_url: str | None = None, allowed_origin: str | None = None, cookie_secure: bool | None = None,
+               storage_dir=None, ocr=None, converter=None, jobs_inline: bool = False) -> FastAPI:
     load_dotenv()
     application = FastAPI(title="SAÚVA")
     if database_url is not None:
@@ -19,6 +24,13 @@ def create_app(*, database_url: str | None = None, allowed_origin: str | None = 
         or os.getenv("SESSION_COOKIE_SECURE", "false").lower() == "true"
     )
     application.include_router(router_for(origin, secure))
+    application.include_router(documents_router(Path(storage_dir) if storage_dir is not None else Path("uploads"), origin, ocr, converter, jobs_inline))
+    web = Path(__file__).resolve().parents[1] / "web"
+    application.mount("/assets", StaticFiles(directory=web), name="assets")
+
+    @application.get("/", include_in_schema=False)
+    def home():
+        return FileResponse(web / "index.html")
 
     @application.get("/health")
     def health() -> dict[str, str]:
