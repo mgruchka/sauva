@@ -1,10 +1,9 @@
 # Estado
-- Tarefas 00/01 executadas na branch dev/foundation; aguardando revisão.
-- Preflight: repositório mgruchka/sauva correto, árvore inicialmente limpa. Git 2.49.0, Node 26.13.0 e npm 11.20.0 disponíveis. Python escolhido: 3.13.0 em C:\Users\Marcos\AppData\Local\Programs\Python\Python313\python.exe; .venv local criado.
-- Alterações: create_app(), instância app, GET /health público, dependências mínimas com versões diretas fixadas, .gitignore, .env.example com valores vazios e README em pt-BR.
-- Instalação: `.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt` concluída sem alterar instalação global.
-- Teste corrigido pelo orquestrador, reexecutado sem alterações pelo agente: `.\.venv\Scripts\python.exe -m pytest tests/test_health.py -q`: **1 passed, 1 warning in 0.97s** (saída 0). Aviso de depreciação do Starlette sobre httpx no TestClient.
-- Importação de app.main e GET /docs via TestClient: OK, HTTP 200 e Swagger UI. Starlette emitiu aviso de depreciação sobre httpx no TestClient.
-- Pendências futuras: psql e gcloud ausentes no PATH; variáveis GEMINI_API_KEY e GOOGLE_APPLICATION_CREDENTIALS ausentes. Nenhuma chamada Google realizada.
-- Bloqueios: nenhum para revisão da fundação; falha anterior resolvida pelo teste corrigido.
-- Próxima ação: revisão do orquestrador, incluindo arquivos novos não rastreados. Não iniciar 02. Sem commit ou push. Nesta reexecução, apenas este status foi editado pelo agente; nenhum .env ou credencial real foi lido.
+
+- Tarefa 02: implementação disponível; integração PostgreSQL pendente.
+- Branch: dev/foundation. Fundação 01 preservada em commit seletivo e integrada com origin/dev/foundation.
+- Alterações: modelos User/AuthSession, sessão SQLAlchemy com psycopg, migração Alembic, Argon2id, seed idempotente, login/me/logout com cookie de oito horas e validação exata de Origin. README e .env.example atualizados.
+- Dependências instaladas na .venv: SQLAlchemy 2.0.44, psycopg 3.2.12, Alembic 1.17.2, argon2-cffi 25.1.0, python-dotenv 1.2.1.
+- Verificação: `python -m pytest tests/test_auth.py tests/test_health.py -q`: health aprovado; cinco testes auth com erro de setup `Configure TEST_DATABASE_URL para um PostgreSQL separado (_test).` Nenhum teste auth aprovado. Import, compilação, Argon2id e GET /health: OK. `git diff --check`: OK.
+- Bloqueio: TEST_DATABASE_URL não configurada; banco PostgreSQL de teste separado ainda precisa ser preparado. Nenhuma chamada Google.
+- Próxima ação: configurar PostgreSQL e executar os cinco testes auth antes de aprovar a integração. Não iniciar 03.
