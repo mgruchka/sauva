@@ -18,6 +18,7 @@ from app.extraction import extract, normalize_jpeg, pdf_pages
 from app.fhir import validate_bundle, normalize_bundle_ids
 from app.models import AuthSession, Document, User
 from app.security import token_digest
+from app.exports import imaging_bundle, IMAGE_NOTICE
 
 MAX_SIZE = 10_000_000
 
@@ -47,6 +48,7 @@ def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jo
     def metadata(doc: Document) -> dict:
         return {"id": str(doc.id), "name": doc.name, "status": doc.status, "stage": doc.stage,
                 "error": doc.error, "created_at": doc.created_at.isoformat(),
+                "document_type": doc.document_type, "folder_id": str(doc.folder_id) if doc.folder_id else None,
                 "validation_level": doc.validation_level}
 
     def owned(db: Session, ident: UUID, owner: User) -> Document:
@@ -63,7 +65,10 @@ def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jo
             doc.status, doc.stage = "processing", "extracting"
             db.commit()
             data = Path(doc.storage_path).read_bytes()
-            if use_gemini_file:
+            if doc.document_type == "Exame de imagem":
+                extracted = IMAGE_NOTICE
+                payload = imaging_bundle(data, doc.file_format, doc.id, doc.name)
+            elif use_gemini_file:
                 doc.stage = "converting"
                 db.commit()
                 extracted, payload = gemini_convert_file(data, doc.file_format)
@@ -97,8 +102,8 @@ def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jo
     @router.post("", status_code=202, dependencies=[Depends(check_origin)])
     async def upload(request: Request, file: UploadFile = File(...), document_type: str = Form(...), name: str | None = Form(None),
                      db: Session = Depends(get_db), owner: User = Depends(user)):
-        if document_type != "Texto":
-            raise HTTPException(422, "Somente documentos do tipo Texto são aceitos nesta etapa.")
+        if document_type not in {"Texto", "Exame de imagem"}:
+            raise HTTPException(422, "Escolha Texto ou Exame de imagem.")
         original = file.filename or ""
         extension = Path(original).suffix.lower()
         if extension not in {".pdf", ".jpg", ".jpeg"}:
@@ -132,7 +137,7 @@ def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jo
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
         doc = Document(id=ident, user_id=owner.id, name=title, original_name=Path(original).name[:255],
-                       document_type="Texto", file_format=fmt, storage_path=str(target), status="queued", stage="queued")
+                       document_type=document_type, file_format=fmt, storage_path=str(target), status="queued", stage="queued")
         try:
             db.add(doc)
             db.commit()

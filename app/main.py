@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.auth import router_for
 from app.documents import router_for as documents_router
+from app.features import router_for as features_router
 
 
 def create_app(*, database_url: str | None = None, allowed_origin: str | None = None, cookie_secure: bool | None = None,
@@ -25,8 +26,18 @@ def create_app(*, database_url: str | None = None, allowed_origin: str | None = 
     )
     application.include_router(router_for(origin, secure))
     application.include_router(documents_router(Path(storage_dir) if storage_dir is not None else Path("uploads"), origin, ocr, converter, jobs_inline))
+    application.include_router(features_router(origin))
     web = Path(__file__).resolve().parents[1] / "web"
     application.mount("/assets", StaticFiles(directory=web), name="assets")
+
+    @application.middleware("http")
+    async def privacy_headers(request, call_next):
+        response = await call_next(request)
+        response.headers["Referrer-Policy"] = "no-referrer"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        if not request.url.path.startswith("/assets/"):
+            response.headers["Cache-Control"] = "no-store"
+        return response
 
     @application.get("/", include_in_schema=False)
     def home():

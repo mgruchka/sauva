@@ -7,12 +7,13 @@ import os
 from pathlib import Path
 import re
 import sys
+from uuid import NAMESPACE_URL, uuid5
 
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-NAMES = ("example_text.pdf", "example_text-1.jpeg", "example_text-2.jpeg")
+NAMES = ("example_text.pdf", "example_text-1.jpeg", "example_text-2.jpeg", "example_imaging.jpeg")
 
 
 def save(path, value):
@@ -42,17 +43,13 @@ def main():
     if args.file and args.retry_failed:
         parser.error("Escolha --file OU --retry-failed.")
     load_dotenv(ROOT / ".env", override=False)
-    missing = [name for name in ("GEMINI_API_KEY", "GEMINI_MODEL") if not os.getenv(name)]
-    if missing:
-        print("Configuração ausente:", ", ".join(missing))
-        return 2
     # Autorizado por Marcos: demos Gemini-only. Não modifica .env ou servidor.
     os.environ["ENABLE_REAL_GOOGLE"] = "true"
     os.environ["FHIR_PROMPT_APPROVED"] = "true"
     os.environ.setdefault("GEMINI_MIN_INTERVAL_SECONDS", "15")
     from app.conversion import gemini_convert_file
     from app.fhir import validate_bundle, normalize_bundle_ids
-    from uuid import NAMESPACE_URL, uuid5
+    from app.exports import imaging_bundle, IMAGE_NOTICE
 
     output = ROOT / "generated" / "demo-gemini"
     output.mkdir(parents=True, exist_ok=True)
@@ -61,10 +58,10 @@ def main():
         "pipeline": "gemini-only-v1", "files": {}, "history": [],
     }
     # Ledger novo: preserva a tentativa Vision anterior em demo-validation/.
-    ledger["files"]["example_imaging.jpeg"] = {
-        "status": "not_implemented",
-        "reason": "Exame de imagem clínica ainda não implementado; não interpretar radiografia como Texto.",
-    }
+    previous_image = ledger["files"].get("example_imaging.jpeg")
+    if previous_image and previous_image.get("status") == "not_implemented":
+        ledger["history"].append({"file": "example_imaging.jpeg", **previous_image})
+        del ledger["files"]["example_imaging.jpeg"]
     if args.retry_failed:
         old = ledger["files"].get(args.retry_failed)
         if not old or old.get("status") != "error":
@@ -74,6 +71,7 @@ def main():
         del ledger["files"][args.retry_failed]
         save(ledger_path, ledger)
     names = (args.retry_failed or args.file,) if args.retry_failed or args.file else NAMES
+    failures = 0
     for name in names:
         if name in ledger["files"]:
             print(name + ": já registrado; nenhuma chamada repetida.")
@@ -81,27 +79,36 @@ def main():
         path = ROOT / "demo-files" / name
         if not path.is_file():
             print("Arquivo ausente:", name)
-            return 2
+            failures += 1
+            continue
         data = path.read_bytes()
         if not data or len(data) > 10_000_000:
             print(name + ": arquivo vazio/acima de 10 MB; nenhuma chamada.")
-            return 2
+            failures += 1
+            continue
         entry = {
             "status": "started", "started_at": datetime.now(timezone.utc).isoformat(),
-            "gemini_calls_max": 2, "vision_calls": 0,
+            "gemini_calls_max": 0 if name == "example_imaging.jpeg" else 2, "vision_calls": 0,
         }
         ledger["files"][name] = entry
         save(ledger_path, ledger)
         try:
             fmt = "pdf" if path.suffix.lower() == ".pdf" else "jpg"
-            text, payload = gemini_convert_file(data, fmt)
+            namespace = uuid5(NAMESPACE_URL, "sauva-demo:" + name)
+            if name == "example_imaging.jpeg":
+                from app.extraction import normalize_jpeg
+                normalize_jpeg(data)
+                text, payload = IMAGE_NOTICE, imaging_bundle(data, fmt, namespace, name)
+            else:
+                missing = [key for key in ("GEMINI_API_KEY", "GEMINI_MODEL") if not os.getenv(key)]
+                if missing:
+                    raise ValueError("Configure GEMINI_API_KEY e GEMINI_MODEL localmente.")
+                text, payload = gemini_convert_file(data, fmt)
             (output / (name + ".extracted.txt")).write_text(text, encoding="utf-8")
             candidate = output / (name + ".candidate.json")
             save(candidate, payload)
             entry["candidate"] = candidate.name
-            payload = validate_bundle(normalize_bundle_ids(
-                payload, namespace=uuid5(NAMESPACE_URL, 'sauva-demo:' + name),
-            ))
+            payload = validate_bundle(normalize_bundle_ids(payload, namespace=namespace))
             target = output / (name + ".fhir.json")
             save(target, payload)
             entry.update({
@@ -117,14 +124,14 @@ def main():
             })
             save(ledger_path, ledger)
             print(name + ": " + entry["error_type"] + ": " + entry["error_message"])
-            print("Interrompido sem retry. Corrigir a causa antes de --retry-failed " + name)
-            return 1
+            print("Sem retry; os demais arquivos continuam. Corrija antes de --retry-failed " + name)
+            failures += 1
         finally:
             save(ledger_path, ledger)
     save(ledger_path, ledger)
     print("Resultados: generated/demo-gemini/; zero chamadas Vision.")
-    print("Validação estrutural apenas; radiografia permanece pendente.")
-    return 0
+    print("Validação estrutural apenas; imagem preservada sem interpretação diagnóstica.")
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":

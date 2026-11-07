@@ -1,7 +1,7 @@
 # Estado
-- Gemini-only executado localmente pelo worker: dois documentos passaram no validador anterior; o terceiro produziu candidato bloqueado por ClinicalImpression. Nenhum retry Vision.
-- Revisão do orquestrador: ClinicalImpression suportado com campos/referências verificados; UUIDs e dois aliases CPF/CNS normalizados no backend, sem alterar valores clínicos.
-- Três artefatos normalizados validados offline em demo-results/gemini-only-normalized/, sem chamada Google adicional. Cinco regressões com SDK simulado passaram; quantidade de testes existentes mantida.
-- Fidelidade ainda parcial: faltam campos estruturados em relação às transcrições e há paráfrase no manuscrito. Ver docs/reviews/05-offline-fhir.md.
-- Próxima ação local: sincronizar e executar scripts/revalidate_saved.py para atualizar ledger sem nova inferência. Não precisa repetir os testes Gemini.
-- Novos prompts melhoram preservação de dados, mas não foram reavaliados por nova chamada real. Conformidade completa BR Core e imagens médicas continuam pendentes.
+- Branch: dev/foundation.
+- Implementados: autenticação demo, Texto PDF/JPEG -> Gemini/FHIR, OCR multimodal, imagem médica como anexo sem diagnóstico, original privado, JSON/PDF local, pastas planas, compartilhamento de resgate único e interface.
+- Exemplos textuais normalizados disponíveis; importação idempotente coloca os quatro exemplos em demo1 sem novas chamadas Google nem alteração do ledger.
+- Verificado pelo orquestrador: sete testes + sete subtestes, quatro PDFs, compilação Python/JS, startup/assets/health, compilação SQL das três migrações.
+- Pendente local: aplicar 0003, seed/importação, executar testes PostgreSQL existentes e dois novos de integração, caminhada rápida na interface.
+- Próxima ação: docs/tasks/06-prototype-finish.md. Não repetir chamadas Gemini dos textos; preservar ledger e segredos.
