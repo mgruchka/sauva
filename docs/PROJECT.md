@@ -14,6 +14,7 @@ Fonte: agent-files/SAUVA_ORCH_PROMPT.docx e decisões posteriores do Marcos em 0
 - Compartilhamento: destinatário registrado, um documento, credencial de uso único e expiração de 24 h. Usuário quer abrir, visualizar e baixar. Duração e encerramento da sessão de acesso ainda precisam de definição.
 - Prompt de conversão precisa de revisão do Marcos antes de uso no pipeline real.
 - Testes definidos pelo orquestrador, no máximo cinco por tarefa, mais integração apropriada.
+- Marcos confirmou contas de demonstração pré-criadas em vez de autocadastro.
 
 ## Materiais
 - agent-files/Bundle-fhir-brcore-example.json
@@ -26,7 +27,7 @@ Fonte: agent-files/SAUVA_ORCH_PROMPT.docx e decisões posteriores do Marcos em 0
 Não enviar toda a pasta de exemplos para cada inferência. O orquestrador selecionará exemplos mínimos e pertinentes. O bundle principal contém múltiplos pacientes; não assumir que primeiro Patient seja o sujeito do documento.
 
 ## Decisões para as respectivas tarefas
-1. Auth: cadastro/autocadastro ou contas demo; email versus username; sessão; posicionamento e texto do consentimento. A política de senha não deve bloquear login de uma senha existente apenas por regra de cadastro.
+1. Auth: contas demo confirmadas; email versus username, sessão e desenho da tarefa 02 ainda sujeitos à confirmação; posicionamento e texto do consentimento. A política de senha não deve bloquear login de uma senha existente apenas por regra de cadastro.
 2. Arquivos: limites de tamanho/páginas e retenção dos originais; local de armazenamento. PDFs mistos e arquivos inválidos.
 3. FHIR: versão/pacote BR Core, recursos mínimos por tipo, validação estrutural e de perfil, tratamento de informações ausentes.
 4. Imagem: preservar/anexar apenas ou interpretar; associação ao paciente; representação e obtenção da imagem no PDF. Não desenvolver diagnóstico automaticamente.
