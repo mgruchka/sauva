@@ -1,0 +1,1 @@
+"""Fundação da aplicação SAÚVA."""

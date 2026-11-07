@@ -1,0 +1,46 @@
+{
+  "resourceType": "Bundle",
+  "id": "cbb9c321-62b1-5702-a701-a02b3de270b4",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:584a956e-134d-57cf-a8f9-aef40ec30d98",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "584a956e-134d-57cf-a8f9-aef40ec30d98",
+        "name": [
+          {
+            "text": "Julia Silva de Oliveira"
+          }
+        ],
+        "birthDate": "2000-02-19"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad34add7-8af9-56b6-85d0-da323fc7a889",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "ad34add7-8af9-56b6-85d0-da323fc7a889",
+        "status": "unknown",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amitriptilina"
+        },
+        "subject": {
+          "reference": "urn:uuid:584a956e-134d-57cf-a8f9-aef40ec30d98"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Tomar 1 (um) comprimido por via oral à noite"
+          }
+        ],
+        "dispenseRequest": {
+          "quantity": {
+            "value": 60,
+            "unit": "cps"
+          }
+        }
+      }
+    }
+  ]
+}

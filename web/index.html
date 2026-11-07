@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SAÚVA — registros de saúde</title><link rel="stylesheet" href="/assets/style.css"></head>
+<body><main>
+<header><img src="/assets/sauva-logo.svg" alt="" width="52" height="52"><div><h1>SAÚVA</h1><p>Registros abertos - para chegar onde precisam.</p></div></header>
+<p id="notice" role="status">Protótipo com dados sintéticos. Confira as informações com o original.</p>
+<section id="login-area" class="panel"><h2>Entrar</h2><form id="login-form"><label>Email <input id="email" type="email" required autocomplete="username"></label><label>Senha <input id="password" type="password" required autocomplete="current-password"></label><button>Entrar</button></form></section>
+<section id="dashboard" hidden>
+<div class="toolbar"><div><h2>Meus documentos</h2><small id="identity"></small></div><button id="logout" class="secondary">Sair</button></div>
+<section id="shared-area" class="panel" hidden><h2>Receber um documento</h2><p>Entre na conta destinatária. O resgate é único; depois, você tem dez minutos para visualizar e baixar.</p><form id="redeem-form"><label>Senha do compartilhamento <input id="share-password" type="password" required autocomplete="off"></label><button>Resgatar acesso</button></form><div id="shared-result"></div></section>
+<form id="upload-form" class="panel"><h2>Adicionar documento</h2><div class="columns"><label>Nome <input id="doc-name" maxlength="255" placeholder="Opcional"></label><label>Tipo <select id="document-type"><option>Texto</option><option>Exame de imagem</option></select></label></div><label>PDF ou JPEG — até 10 MB e 10 páginas <input id="file" type="file" accept=".pdf,.jpg,.jpeg,application/pdf,image/jpeg" required></label><small>Texto inclui receitas e manuscritos. Imagens médicas são preservadas sem interpretação diagnóstica. Novos textos usam Gemini.</small><button id="upload-button">Enviar documento</button></form>
+<div class="toolbar filters"><label>Pasta <select id="folder-filter"><option value="all">Todos os documentos</option></select></label><button id="new-folder" class="secondary">Criar pasta</button><button id="refresh" class="secondary">Atualizar</button></div>
+<div id="documents"></div>
+<section id="share-output" class="panel" hidden><h2>Compartilhamento criado</h2><p>Envie o link e a senha à conta escolhida. Expira em 24 horas.</p><label>Link <input id="share-url" readonly></label><label>Senha <input id="share-code" readonly></label><button id="close-share" class="secondary">Fechar</button></section>
+<p class="muted">Validação estrutural parcial. Conformidade BR Core e conteúdo clínico não certificados.</p>
+</section></main><script src="/assets/app.js" defer></script></body></html>

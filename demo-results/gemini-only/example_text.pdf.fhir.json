@@ -1,0 +1,158 @@
+{
+  "resourceType": "Bundle",
+  "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+        "name": [
+          {
+            "text": "JULIA SILVA DE OLIVEIRA"
+          }
+        ],
+        "birthDate": "2000-02-19",
+        "identifier": [
+          {
+            "system": "http://www.saude.gov.br/fhir/sid/cpf",
+            "value": "37122457840"
+          },
+          {
+            "system": "http://www.saude.gov.br/fhir/sid/cns",
+            "value": "276338124987092"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Alergia a penicilina"
+        },
+        "patient": {
+          "reference": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "URTICARIA"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "G43.1"
+            }
+          ],
+          "text": "ENXAQUECA COM AURA"
+        },
+        "subject": {
+          "reference": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "AMITRIPTILINA 50mg"
+        },
+        "subject": {
+          "reference": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
+        "status": "final",
+        "code": {
+          "text": "HEMOGLOBINA"
+        },
+        "subject": {
+          "reference": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        },
+        "effectiveDateTime": "2024-08-26",
+        "valueQuantity": {
+          "value": 13.4,
+          "unit": "g/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
+        "status": "final",
+        "code": {
+          "text": "TSH"
+        },
+        "subject": {
+          "reference": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        },
+        "effectiveDateTime": "2024-08-26",
+        "valueQuantity": {
+          "value": 2.1,
+          "unit": "mUI/L"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d",
+        "status": "final",
+        "code": {
+          "text": "GLICEMIA EM JEJUM"
+        },
+        "subject": {
+          "reference": "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        },
+        "effectiveDateTime": "2024-08-26",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mg/dL"
+        }
+      }
+    }
+  ]
+}
