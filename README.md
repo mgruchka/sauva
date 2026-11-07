@@ -1,8 +1,8 @@
 # SAÚVAbeta
 
-O SAÚVA organiza documentos de saúde e converte textos em registros FHIR. Para experimentar, você pode abrir um prontuário, uma receita, um manuscrito e um exame de imagem usando os quatro exemplos do repositório. A demonstração funciona com PostgreSQL local e dispensa chave de API. Para converter **novos documentos de texto** com Gemini, configure a chave no passo 5.
+<img width="760" height="576" alt="sauva-logo" src="https://github.com/user-attachments/assets/230738ba-a616-45ad-8907-6a445592a525" />
 
-![Alt text] (https://github.com/mgruchka/sauva/tree/main/agent-files/sauva-logo.svg)
+O SAÚVA organiza documentos de saúde e converte textos em registros FHIR. Para experimentar, você pode abrir um prontuário, uma receita, um manuscrito e um exame de imagem usando os quatro exemplos do repositório. A demonstração funciona com PostgreSQL local e dispensa chave de API. Para converter **novos documentos de texto** com Gemini, configure a chave no passo 5.
 
 Esse repositório contém o protótipo desenvolvido para o III Hackathon Saúde HCFMUSP de 2026, e é, portanto, uma versão Beta que serve como prova de conceito inicial para o SAÚVA. Convidamos você, também, a rodá-lo e nos dar a sua opinião!
 
