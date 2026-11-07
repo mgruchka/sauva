@@ -1,13 +1,9 @@
 # Revisão 02 — autenticação demo
 
-**Implementação disponível; integração PostgreSQL pendente.**
+Implementação publicada em `dev/foundation`: modelos User/AuthSession, migração Alembic, conexão PostgreSQL, Argon2id, seed idempotente, endpoints login/me/logout, cookie HttpOnly de oito horas e validação exata de Origin. Arquivos de código e documentação da tarefa 02 permanecem no commit anterior; esta atualização registra a verificação local.
 
-Entrega: modelos User/AuthSession, Alembic, PostgreSQL/psycopg, Argon2id, seed idempotente e login/me/logout. Cookie HttpOnly de oito horas, apenas SHA-256 do token persistido e origem exata obrigatória nos POSTs.
+PostgreSQL 18 local em execução. `.\.venv\Scripts\python.exe -m alembic upgrade head`: saída 0. `.\.venv\Scripts\python.exe scripts/run_tests.py`: saída 0, **6 passed, 1 warning in 7.21s**; cinco testes auth e um health aprovados. O aviso é de depreciação do TestClient.
 
-Verificação anterior: importação, compilação, Argon2id e health OK; pytest teve um health aprovado e cinco erros de setup auth por TEST_DATABASE_URL ausente. Nenhuma chamada Google.
+`.\.venv\Scripts\python.exe -m app.seed`: saída 1, `Configure DATABASE_URL e as duas senhas DEMO_* antes do seed.` Conferência de presença sem revelar valores: `DATABASE_URL` e `TEST_DATABASE_URL` presentes; ambas as senhas DEMO_* ausentes ou vazias. Nenhuma conta demo operacional criada pelo seed nesta rodada.
 
-O orquestrador ajustou o carregamento de `.env` na migração e adicionou `scripts/run_tests.py` e `docs/POSTGRES_LOCAL.md`. Testes originais preservados.
-
-Verificação local após `git pull --ff-only origin dev/foundation`: PostgreSQL 18 encontrado fora do PATH, serviço `postgresql-x64-18` em execução. A conexão sem senha (`psql -w -h 127.0.0.1 -U postgres -d postgres -tAc 'SELECT 1'`) retornou `fe_sendauth: no password supplied`. `.env` não existia; foi criado a partir de `.env.example` e confirmado como ignorado pelo Git. Nenhuma credencial real foi lida ou publicada. Migração, seed e `scripts/run_tests.py` não executados porque ainda faltam acesso local e configuração dos bancos; cinco testes auth permanecem não aprovados.
-
-Ação do Marcos: usar SQL Shell com a senha administrativa local, conferir `\du` e `\l`, criar apenas role/bancos ausentes e definir senha da role conforme docs/POSTGRES_LOCAL.md. Preencher `.env` com as duas URLs e senhas demo sem enviá-las pelo chat. Depois executar migração, seed e testes. **Integração PostgreSQL pendente; não iniciar 03.**
+Próxima ação do Marcos: preencher as duas senhas DEMO_* localmente em `.env` e repetir o seed. Não enviar credenciais pelo chat. **Integração técnica aprovada; seed operacional pendente.** Não iniciar 03.
