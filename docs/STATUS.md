@@ -1,8 +1,8 @@
 # Estado
 
-- Tarefa 02: implementação publicada em dev/foundation; integração PostgreSQL testada, seed operacional pendente.
+- Tarefa 02: implementação, integração PostgreSQL e seed operacional concluídos; pronta para revisão em dev/foundation.
 - PostgreSQL 18 local em execução. `DATABASE_URL` e `TEST_DATABASE_URL` presentes no ambiente carregado de `.env`; nenhum valor foi lido ou publicado.
 - `.\.venv\Scripts\python.exe -m alembic upgrade head`: saída 0, migração concluída.
-- `.\.venv\Scripts\python.exe -m app.seed`: saída 1, `Configure DATABASE_URL e as duas senhas DEMO_* antes do seed.` Verificação de presença confirmou que `DEMO_OWNER_PASSWORD` e `DEMO_RECIPIENT_PASSWORD` estão ausentes ou vazias. Nenhuma conta operacional criada pelo seed.
+- `.\.venv\Scripts\python.exe -m app.seed`: executado duas vezes após configuração local; ambas as execuções concluíram com saída 0 e mensagem `Contas de demonstração prontas.` A repetição confirmou o caminho idempotente sem redefinir contas existentes.
 - `.\.venv\Scripts\python.exe scripts/run_tests.py`: saída 0, **6 passed, 1 warning in 7.21s**; cinco testes auth e um health aprovados. Aviso de depreciação do TestClient.
-- Próxima ação: Marcos preencher as duas senhas DEMO_* localmente em `.env` e repetir `python -m app.seed`. Não enviar senhas pelo chat. Não iniciar 03.
+- Próxima ação: revisão do orquestrador. Migração e testes não foram repetidos nesta rodada porque o código não mudou. Não iniciar 03.

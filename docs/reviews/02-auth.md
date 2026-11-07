@@ -4,6 +4,6 @@ Implementação publicada em `dev/foundation`: modelos User/AuthSession, migraç
 
 PostgreSQL 18 local em execução. `.\.venv\Scripts\python.exe -m alembic upgrade head`: saída 0. `.\.venv\Scripts\python.exe scripts/run_tests.py`: saída 0, **6 passed, 1 warning in 7.21s**; cinco testes auth e um health aprovados. O aviso é de depreciação do TestClient.
 
-`.\.venv\Scripts\python.exe -m app.seed`: saída 1, `Configure DATABASE_URL e as duas senhas DEMO_* antes do seed.` Conferência de presença sem revelar valores: `DATABASE_URL` e `TEST_DATABASE_URL` presentes; ambas as senhas DEMO_* ausentes ou vazias. Nenhuma conta demo operacional criada pelo seed nesta rodada.
+Após configuração local das senhas DEMO_*, `.\.venv\Scripts\python.exe -m app.seed` concluiu duas vezes com saída 0 e mensagem `Contas de demonstração prontas.` A segunda execução confirmou o caminho idempotente; nenhuma senha ou hash foi exibido. Migração e testes não foram repetidos nesta rodada porque o código não mudou.
 
-Próxima ação do Marcos: preencher as duas senhas DEMO_* localmente em `.env` e repetir o seed. Não enviar credenciais pelo chat. **Integração técnica aprovada; seed operacional pendente.** Não iniciar 03.
+**Tarefa 02 pronta para revisão.** Não iniciar 03.
