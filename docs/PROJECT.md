@@ -15,6 +15,8 @@ Fonte: agent-files/SAUVA_ORCH_PROMPT.docx e decisões posteriores do Marcos em 0
 - Prompt de conversão precisa de revisão do Marcos antes de uso no pipeline real.
 - Testes definidos pelo orquestrador, no máximo cinco por tarefa, mais integração apropriada.
 - Marcos confirmou contas de demonstração pré-criadas em vez de autocadastro.
+- Entrega prioritária aprovada: Texto PDF/JPEG até 10 MB e 10 páginas, originais em uploads/ por usuário, processamento serial com status. Pastas, imagens médicas, PDF de saída e compartilhamento ficam para depois do caminho upload -> OCR/extração -> Gemini -> baixar JSON.
+- Tarefa 03 implementa o caminho completo com testes simulados e adaptadores reais preparados. O prompt continua sujeito à revisão anterior à primeira chamada real.
 
 ## Materiais
 - agent-files/Bundle-fhir-brcore-example.json
@@ -28,7 +30,7 @@ Não enviar toda a pasta de exemplos para cada inferência. O orquestrador selec
 
 ## Decisões para as respectivas tarefas
 1. Auth: comportamento aprovado: duas contas demo com mesmas permissões, email/senha, cookie de sessão de 8 horas, logout com revogação, sem autocadastro ou recuperação de senha. Posicionamento e texto do consentimento ficam para a interface. A política de senha não deve bloquear login de uma senha existente apenas por regra de cadastro.
-2. Arquivos: limites de tamanho/páginas e retenção dos originais; local de armazenamento. PDFs mistos e arquivos inválidos.
+2. Arquivos: aprovados 10 MB/10 páginas, uploads/ local por proprietário, originais mantidos para demonstração e processamento serial. PDFs mistos e inválidos especificados na tarefa 03.
 3. FHIR: versão/pacote BR Core, recursos mínimos por tipo, validação estrutural e de perfil, tratamento de informações ausentes.
 4. Imagem: preservar/anexar apenas ou interpretar; associação ao paciente; representação e obtenção da imagem no PDF. Não desenvolver diagnóstico automaticamente.
 5. Compartilhamento: momento de resgate, duração da sessão e regra de download. Proposta ainda não confirmada: resgate único abre sessão temporária restrita ao documento, com download durante a sessão.

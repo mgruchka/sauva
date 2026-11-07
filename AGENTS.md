@@ -18,7 +18,8 @@ Produto brasileiro para registros de saúde; interface, mensagens ao usuário e 
 - Consulte documentação oficial somente para a dúvida concreta; evite pesquisa repetida.
 - Não faça chamadas Gemini/Vision em testes rotineiros. Use adaptadores simulados; chamadas reais exigem tarefa explícita e orçamento.
 - Instale apenas dependências necessárias à tarefa; reutilize o ambiente e as ferramentas existentes.
-- Se o mesmo erro persistir após duas tentativas relevantes, apresente a causa provável e o bloqueio; não entre em loop.
+- Se o mesmo erro persistir após duas tentativas relevantes, apresente a causa provável e o bloqueio; não entre em loop. Prossiga nas partes independentes da tarefa: ler arquivos, sincronizar Git ou constatar ausência de credencial não encerra uma tarefa cuja implementação ainda está autorizada.
+- Na tarefa 03: implementar todo o caminho com fakes e preparar SDKs/prompts; aprovação do prompt bloqueia apenas a chamada real, não a escrita de código.
 - Mantenha docs/STATUS.md curto: tarefa, alterações, verificação, bloqueios e próxima ação. Não copie conversas.
 - Ao terminar: resumo de até 200 palavras, arquivos modificados, comandos de verificação e resultados, decisões pendentes. Nunca inclua segredos ou dados clínicos reais.
 
