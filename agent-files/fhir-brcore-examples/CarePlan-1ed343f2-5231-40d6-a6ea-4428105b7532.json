@@ -1,0 +1,47 @@
+{
+  "resourceType" : "CarePlan",
+  "id" : "1ed343f2-5231-40d6-a6ea-4428105b7532",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: CarePlan 1ed343f2-5231-40d6-a6ea-4428105b7532</b></p><a name=\"1ed343f2-5231-40d6-a6ea-4428105b7532\"> </a><a name=\"hc1ed343f2-5231-40d6-a6ea-4428105b7532\"> </a><p><b>status</b>: Active</p><p><b>intent</b>: Plan</p><p><b>title</b>: Plano de Cuidados para Asma Persistente Moderada</p><p><b>description</b>: Plano de cuidado voltado para controle de asma e monitoramento do paciente.</p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">José da Silva</a></p><p><b>created</b>: 2024-12-19</p><p><b>contributor</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p><p><b>addresses</b>: <a href=\"Condition-91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5.html\">Dispnéia</a></p><blockquote><p><b>activity</b></p><h3>Details</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Kind</b></td><td><b>Code</b></td><td><b>Status</b></td><td><b>Scheduled[x]</b></td><td><b>Performer</b></td><td><b>Description</b></td></tr><tr><td style=\"display: none\">*</td><td>ServiceRequest</td><td><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRSubGrupoTabelaSUS 0309}\">Terapias especializadas</span></td><td>Scheduled</td><td>2024-12-20 --&gt; 2024-12-20</td><td><a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></td><td>Consulta periódica para acompanhamento da asma persistente moderada.</td></tr></table></blockquote></div>"
+  },
+  "status" : "active",
+  "intent" : "plan",
+  "title" : "Plano de Cuidados para Asma Persistente Moderada",
+  "description" : "Plano de cuidado voltado para controle de asma e monitoramento do paciente.",
+  "subject" : {
+    "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "display" : "José da Silva"
+  },
+  "created" : "2024-12-19",
+  "contributor" : [{
+    "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+    "display" : "Hospital Sírio-Libanês"
+  }],
+  "addresses" : [{
+    "reference" : "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+    "display" : "Dispnéia"
+  }],
+  "activity" : [{
+    "detail" : {
+      "kind" : "ServiceRequest",
+      "code" : {
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRSubGrupoTabelaSUS",
+          "code" : "0309",
+          "display" : "Terapias especializadas"
+        }]
+      },
+      "status" : "scheduled",
+      "scheduledPeriod" : {
+        "start" : "2024-12-20",
+        "end" : "2024-12-20"
+      },
+      "performer" : [{
+        "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display" : "Hospital Sírio-Libanês"
+      }],
+      "description" : "Consulta periódica para acompanhamento da asma persistente moderada."
+    }
+  }]
+}

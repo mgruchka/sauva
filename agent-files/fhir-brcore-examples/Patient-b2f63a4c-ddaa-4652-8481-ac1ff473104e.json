@@ -1,0 +1,98 @@
+{
+  "resourceType" : "Patient",
+  "id" : "b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+  "language" : "pt-BR",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><p class=\"res-header-id\"><b>Narrativa gerada: Patient b2f63a4c-ddaa-4652-8481-ac1ff473104e</b></p><a name=\"b2f63a4c-ddaa-4652-8481-ac1ff473104e\"> </a><a name=\"hcb2f63a4c-ddaa-4652-8481-ac1ff473104e\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">João Carlos Silva (official) Male, DoB: 1985-03-01 ( Health Card Number: NamingSystemCNS#987654321098765\u00a0(use:\u00a0official,\u00a0))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\">Tax ID number/12345678901\u00a0(utilização:\u00a0official,\u00a0)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Formas de contactar o doente\">Detalhes do contacto</td><td colspan=\"3\"><ul><li><a href=\"tel:+551198765-4321\">+55 11 98765-4321</a></li><li><a href=\"mailto:joao.carlos@example.com\">joao.carlos@example.com</a></li><li>Rua Exemplo, 123, Bairro Centro, São Paulo, SP, 01000-000(home)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The registered place of birth of the patient. A sytem may use the address.text if they don't store the birthPlace address in discrete elements.\"><a href=\"http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-patient-birthPlace.html\">Patient Birth Place</a></td><td colspan=\"3\">São Paulo SP Brasil </td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define a raça do indivíduo\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-raca-br-ips.html\">Raça BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor 01}\">Branca</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define o sexo no nascimento do paciente\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-sexo-nascimento-br-ips.html\">Sexo no nascimento BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{http://hl7.org/fhir/administrative-gender male}\">Male</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The gender the patient identifies with. The Patient's gender identity is used as guidance (e.g. for staff) about how to interact with the patient.\"><a href=\"http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-patient-genderIdentity.html\">Gender Identity</a></td><td colspan=\"3\"><span title=\"Códigos:{http://snomed.info/sct 446151000124109}\">Identifies as male gender</span></td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+    "valueAddress" : {
+      "city" : "São Paulo",
+      "state" : "SP",
+      "country" : "Brasil"
+    }
+  },
+  {
+    "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor",
+        "code" : "01",
+        "display" : "Branca"
+      }]
+    }
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "http://snomed.info/sct",
+        "code" : "446151000124109"
+      }]
+    }
+  },
+  {
+    "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/administrative-gender",
+        "code" : "male",
+        "display" : "Male"
+      }]
+    }
+  }],
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "TAX",
+        "display" : "Tax ID number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cpf",
+    "value" : "12345678901"
+  },
+  {
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "HC",
+        "display" : "Health Card Number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cns",
+    "value" : "987654321098765"
+  }],
+  "name" : [{
+    "use" : "official",
+    "family" : "Silva",
+    "given" : ["João",
+    "Carlos"]
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55 11 98765-4321",
+    "use" : "mobile"
+  },
+  {
+    "system" : "email",
+    "value" : "joao.carlos@example.com",
+    "use" : "home"
+  }],
+  "gender" : "male",
+  "birthDate" : "1985-03-01",
+  "address" : [{
+    "use" : "home",
+    "type" : "both",
+    "text" : "Rua Exemplo, 123, Bairro Centro, São Paulo, SP, 01000-000",
+    "line" : ["Rua Exemplo, 123"],
+    "city" : "São Paulo",
+    "state" : "SP",
+    "postalCode" : "01000-000",
+    "country" : "Brasil"
+  }]
+}

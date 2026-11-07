@@ -1,0 +1,40 @@
+{
+  "resourceType" : "Observation",
+  "id" : "b359a2d8-dfef-4147-b5a1-3a6437263650",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: Observation b359a2d8-dfef-4147-b5a1-3a6437263650</b></p><a name=\"b359a2d8-dfef-4147-b5a1-3a6437263650\"> </a><a name=\"hcb359a2d8-dfef-4147-b5a1-3a6437263650\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Histórico Social</span></p><p><b>code</b>: <span title=\"Códigos:{http://loinc.org 74013-4}\">Número de doses de álcool ingeridos por dia</span></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">José da Silva</a></p><p><b>effective</b>: 2024-12-19</p><p><b>performer</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>value</b>: 2 bebidas/dia<span style=\"background: LightGoldenRodYellow\"> (Detalhes: UCUM código/d = '/d')</span></p></div>"
+  },
+  "status" : "final",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+      "code" : "social-history",
+      "display" : "Social History"
+    }],
+    "text" : "Histórico Social"
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "74013-4",
+      "display" : "Alcoholic drinks per day"
+    }],
+    "text" : "Número de doses de álcool ingeridos por dia"
+  },
+  "subject" : {
+    "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "display" : "José da Silva"
+  },
+  "effectiveDateTime" : "2024-12-19",
+  "performer" : [{
+    "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+    "display" : "Maria Clara"
+  }],
+  "valueQuantity" : {
+    "value" : 2,
+    "unit" : "bebidas/dia",
+    "system" : "http://unitsofmeasure.org",
+    "code" : "/d"
+  }
+}

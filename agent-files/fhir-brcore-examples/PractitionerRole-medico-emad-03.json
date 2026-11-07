@@ -1,0 +1,40 @@
+{
+  "resourceType" : "PractitionerRole",
+  "id" : "medico-emad-03",
+  "meta" : {
+    "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: PractitionerRole medico-emad-03</b></p><a name=\"medico-emad-03\"> </a><a name=\"hcmedico-emad-03\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-br-core-practitionerrole.html\">BRCorePractitionerRole</a></p></div><p><b>identifier</b>: Medical License number/100003-SP\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>period</b>: 2024-01-01 --&gt; (em curso)</p><p><b>practitioner</b>: Daniel Rocha</p><p><b>organization</b>: <a href=\"Organization-sms-exemplo.html\">Secretaria Municipal de Saúde Exemplo</a></p><p><b>code</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO 225125}\">MEDICO CLINICO</span></p></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "MD"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/crm-sp",
+    "value" : "100003-SP"
+  }],
+  "active" : true,
+  "period" : {
+    "start" : "2024-01-01"
+  },
+  "practitioner" : {
+    "display" : "Daniel Rocha"
+  },
+  "organization" : {
+    "reference" : "Organization/sms-exemplo",
+    "display" : "Secretaria Municipal de Saúde Exemplo"
+  },
+  "code" : [{
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+      "code" : "225125",
+      "display" : "MEDICO CLINICO"
+    }]
+  }]
+}

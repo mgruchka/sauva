@@ -1,0 +1,103 @@
+{
+  "resourceType" : "Composition",
+  "id" : "5c0878bd-a787-489d-82aa-82f4fb55909e",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: Composition 5c0878bd-a787-489d-82aa-82f4fb55909e</b></p><a name=\"5c0878bd-a787-489d-82aa-82f4fb55909e\"> </a><a name=\"hc5c0878bd-a787-489d-82aa-82f4fb55909e\"> </a><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Códigos:{http://loinc.org 11488-4}\">Nota de Consulta Especializada</span></p><p><b>category</b>: <span title=\"Códigos:{http://loinc.org 11488-4}\">Consult note</span></p><p><b>encounter</b>: <a href=\"Encounter-c6d553d8-cce0-404b-9d1f-eeffbf7fc6df.html\">Ambulatorial</a></p><p><b>date</b>: 2024-02-06 10:00:00+0000</p><p><b>author</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>title</b>: Nota de Consulta Especializada</p><p><b>confidentiality</b>: normal</p><h3>Attesters</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Mode</b></td><td><b>Time</b></td><td><b>Party</b></td></tr><tr><td style=\"display: none\">*</td><td>Professional</td><td>2024-02-06 10:30:00+0000</td><td><a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></td></tr></table><p><b>custodian</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p></div>"
+  },
+  "status" : "final",
+  "type" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "11488-4",
+      "display" : "Consult note"
+    }],
+    "text" : "Nota de Consulta Especializada"
+  },
+  "category" : [{
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "11488-4",
+      "display" : "Consult note"
+    }]
+  }],
+  "subject" : {
+    "reference" : "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+    "display" : "Ana Beatriz"
+  },
+  "encounter" : {
+    "reference" : "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+    "display" : "Ambulatorial"
+  },
+  "date" : "2024-02-06T10:00:00Z",
+  "author" : [{
+    "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+    "display" : "Maria Clara"
+  }],
+  "title" : "Nota de Consulta Especializada",
+  "confidentiality" : "N",
+  "attester" : [{
+    "mode" : "professional",
+    "time" : "2024-02-06T10:30:00Z",
+    "party" : {
+      "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display" : "Maria Clara"
+    }
+  }],
+  "custodian" : {
+    "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+    "display" : "Hospital Sírio-Libanês"
+  },
+  "section" : [{
+    "title" : "Diagnósticos Avaliados",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "57852-6",
+        "display" : "Problem list Reported"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5"
+    }]
+  },
+  {
+    "title" : "Alergias e Intolerâncias",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "48765-2",
+        "display" : "Allergies and adverse reactions Document"
+      }]
+    },
+    "entry" : [{
+      "reference" : "AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34"
+    }]
+  },
+  {
+    "title" : "Solicitações de Procedimentos",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "42349-1",
+        "display" : "Reason for referral (narrative)"
+      }]
+    },
+    "entry" : [{
+      "reference" : "ServiceRequest/d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85"
+    }]
+  },
+  {
+    "title" : "Plano de Cuidado",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "18776-5",
+        "display" : "Plan of care note"
+      }]
+    },
+    "entry" : [{
+      "reference" : "CarePlan/1ed343f2-5231-40d6-a6ea-4428105b7532"
+    }]
+  }]
+}

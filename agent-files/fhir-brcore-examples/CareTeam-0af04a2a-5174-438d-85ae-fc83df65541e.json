@@ -1,0 +1,68 @@
+{
+  "resourceType" : "CareTeam",
+  "id" : "0af04a2a-5174-438d-85ae-fc83df65541e",
+  "language" : "pt-BR",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><p class=\"res-header-id\"><b>Narrativa gerada: CareTeam 0af04a2a-5174-438d-85ae-fc83df65541e</b></p><a name=\"0af04a2a-5174-438d-85ae-fc83df65541e\"> </a><a name=\"hc0af04a2a-5174-438d-85ae-fc83df65541e\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>status</b>: Active</p><p><b>category</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRModalidadeAssistencial 04}\">Time de Coordenação de Cuidado</span></p><p><b>name</b>: Equipe de Saúde da Família - Unidade São Paulo</p><p><b>subject</b>: <a href=\"Patient-b1997888-85fd-41b6-bf94-6242cf3c8265.html\">Ana Beatriz</a></p><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType PRF}\">performer</span></p><p><b>member</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>onBehalfOf</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p><p><b>period</b>: 2023-01-01 --&gt; (em curso)</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO 225125}\">MEDICO CLINICO</span></p><p><b>member</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>period</b>: 2023-01-01 --&gt; (em curso)</p></blockquote><p><b>managingOrganization</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p><p><b>telecom</b>: <a href=\"tel:+551198765-4321\">+55 11 98765-4321</a></p></div>"
+  },
+  "status" : "active",
+  "category" : [{
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRModalidadeAssistencial",
+      "code" : "04",
+      "display" : "Atenção Hospitalar"
+    }],
+    "text" : "Time de Coordenação de Cuidado"
+  }],
+  "name" : "Equipe de Saúde da Família - Unidade São Paulo",
+  "subject" : {
+    "reference" : "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+    "display" : "Ana Beatriz"
+  },
+  "participant" : [{
+    "role" : [{
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+        "code" : "PRF",
+        "display" : "performer"
+      }]
+    }],
+    "member" : {
+      "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display" : "Maria Clara"
+    },
+    "onBehalfOf" : {
+      "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+      "display" : "Hospital Sírio-Libanês"
+    },
+    "period" : {
+      "start" : "2023-01-01"
+    }
+  },
+  {
+    "role" : [{
+      "coding" : [{
+        "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+        "code" : "225125",
+        "display" : "MEDICO CLINICO"
+      }]
+    }],
+    "member" : {
+      "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display" : "Maria Clara"
+    },
+    "period" : {
+      "start" : "2023-01-01"
+    }
+  }],
+  "managingOrganization" : [{
+    "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+    "display" : "Hospital Sírio-Libanês"
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55 11 98765-4321",
+    "use" : "work"
+  }]
+}

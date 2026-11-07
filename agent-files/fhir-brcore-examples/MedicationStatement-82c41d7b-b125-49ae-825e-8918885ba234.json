@@ -1,0 +1,62 @@
+{
+  "resourceType" : "MedicationStatement",
+  "id" : "82c41d7b-b125-49ae-825e-8918885ba234",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: MedicationStatement 82c41d7b-b125-49ae-825e-8918885ba234</b></p><a name=\"82c41d7b-b125-49ae-825e-8918885ba234\"> </a><a name=\"hc82c41d7b-b125-49ae-825e-8918885ba234\"> </a><p><b>status</b>: Completed</p><p><b>medication</b>: <a href=\"Medication-3a46210c-7eb3-48ec-aa67-db7e7ee18864.html\">levofloxacino</a></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">João Carlos</a></p><p><b>effective</b>: 2024-04-01 --&gt; 2024-04-07</p><p><b>dateAsserted</b>: 2024-05-01</p><p><b>informationSource</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>reasonCode</b>: <span title=\"Códigos:{http://hl7.org/fhir/sid/icd-10 R50.9}\">Febre alta sem causa definida</span></p><p><b>note</b>: </p><blockquote><div><p>Paciente relatou que usou Dipirona 500mg durante uma semana para controle de febre.</p>\n</div></blockquote><blockquote><p><b>dosage</b></p><p><b>text</b>: Tomar 1 comprimido via oral a cada 6 horas durante 7 dias.</p><p><b>timing</b>: 4 por 1 day</p><p><b>route</b>: <span title=\"Códigos:{http://standardterms.edqm.eu 20053000}\">Oral use</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>500 mg<span style=\"background: LightGoldenRodYellow\"> (Detalhes: UCUM códigomg = 'mg')</span></td></tr></table></blockquote></div>"
+  },
+  "status" : "completed",
+  "medicationReference" : {
+    "reference" : "Medication/3a46210c-7eb3-48ec-aa67-db7e7ee18864",
+    "display" : "levofloxacino"
+  },
+  "subject" : {
+    "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "display" : "João Carlos"
+  },
+  "effectivePeriod" : {
+    "start" : "2024-04-01",
+    "end" : "2024-04-07"
+  },
+  "dateAsserted" : "2024-05-01",
+  "informationSource" : {
+    "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+    "display" : "Maria Clara"
+  },
+  "reasonCode" : [{
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10",
+      "code" : "R50.9",
+      "display" : "Fever, unspecified"
+    }],
+    "text" : "Febre alta sem causa definida"
+  }],
+  "note" : [{
+    "text" : "Paciente relatou que usou Dipirona 500mg durante uma semana para controle de febre."
+  }],
+  "dosage" : [{
+    "text" : "Tomar 1 comprimido via oral a cada 6 horas durante 7 dias.",
+    "timing" : {
+      "repeat" : {
+        "frequency" : 4,
+        "period" : 1,
+        "periodUnit" : "d"
+      }
+    },
+    "route" : {
+      "coding" : [{
+        "system" : "http://standardterms.edqm.eu",
+        "code" : "20053000",
+        "display" : "Oral use"
+      }]
+    },
+    "doseAndRate" : [{
+      "doseQuantity" : {
+        "value" : 500,
+        "unit" : "mg",
+        "system" : "http://unitsofmeasure.org",
+        "code" : "mg"
+      }
+    }]
+  }]
+}

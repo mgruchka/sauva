@@ -1,0 +1,31 @@
+{
+  "resourceType" : "CareTeam",
+  "id" : "br-core-careteam-esf-ine",
+  "meta" : {
+    "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careteam"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: CareTeam br-core-careteam-esf-ine</b></p><a name=\"br-core-careteam-esf-ine\"> </a><a name=\"hcbr-core-careteam-esf-ine\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-br-core-careteam.html\">BR-Core CareTeam</a></p></div><p><b>identifier</b>: <code>https://terminologia.saude.gov.br/fhir/NamingSystem/ine</code>/0000123456\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>status</b>: Active</p><p><b>name</b>: ESF Vila Esperança 01</p><blockquote><p><b>participant</b></p><p><b>member</b>: <a href=\"PractitionerRole-medica-esf-01.html\">PractitionerRole MEDICO DA ESTRATEGIA DE SAUDE DA FAMILIA</a></p></blockquote><blockquote><p><b>participant</b></p><p><b>member</b>: <a href=\"PractitionerRole-enfermeira-esf-01.html\">PractitionerRole ENFERMEIRO DA ESTRATEGIA DE SAUDE DA FAMILIA</a></p></blockquote><p><b>managingOrganization</b>: <a href=\"Organization-ubs-vila-esperanca.html\">Organization UBS Vila Esperança</a></p></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "system" : "https://terminologia.saude.gov.br/fhir/NamingSystem/ine",
+    "value" : "0000123456"
+  }],
+  "status" : "active",
+  "name" : "ESF Vila Esperança 01",
+  "participant" : [{
+    "member" : {
+      "reference" : "PractitionerRole/medica-esf-01"
+    }
+  },
+  {
+    "member" : {
+      "reference" : "PractitionerRole/enfermeira-esf-01"
+    }
+  }],
+  "managingOrganization" : [{
+    "reference" : "Organization/ubs-vila-esperanca"
+  }]
+}

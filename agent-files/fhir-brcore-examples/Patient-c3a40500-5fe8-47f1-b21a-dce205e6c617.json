@@ -1,0 +1,89 @@
+{
+  "resourceType" : "Patient",
+  "id" : "c3a40500-5fe8-47f1-b21a-dce205e6c617",
+  "language" : "pt-BR",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><p class=\"res-header-id\"><b>Narrativa gerada: Patient c3a40500-5fe8-47f1-b21a-dce205e6c617</b></p><a name=\"c3a40500-5fe8-47f1-b21a-dce205e6c617\"> </a><a name=\"hcc3a40500-5fe8-47f1-b21a-dce205e6c617\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Maria Fernanda Souza (official) Female, DoB: 1992-07-15 ( Health Card Number: NamingSystemCNS#876543210987654\u00a0(use:\u00a0official,\u00a0))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\">Tax ID number/23456789012\u00a0(utilização:\u00a0official,\u00a0)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Formas de contactar o doente\">Detalhes do contacto</td><td colspan=\"3\"><ul><li><a href=\"tel:+552199876-5432\">+55 21 99876-5432</a></li><li><a href=\"mailto:maria.fernanda@example.com\">maria.fernanda@example.com</a></li><li>Avenida Atlântica, 1702, Copacabana, Rio de Janeiro, RJ, 22021-001(home)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The registered place of birth of the patient. A sytem may use the address.text if they don't store the birthPlace address in discrete elements.\"><a href=\"http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-patient-birthPlace.html\">Patient Birth Place</a></td><td colspan=\"3\">Rio de Janeiro RJ Brasil </td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define a raça do indivíduo\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-raca-br-ips.html\">Raça BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor 03}\">Parda</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define o sexo no nascimento do paciente\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-sexo-nascimento-br-ips.html\">Sexo no nascimento BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{http://hl7.org/fhir/administrative-gender female}\">Female</span></td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+    "valueAddress" : {
+      "city" : "Rio de Janeiro",
+      "state" : "RJ",
+      "country" : "Brasil"
+    }
+  },
+  {
+    "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor",
+        "code" : "03",
+        "display" : "Parda"
+      }]
+    }
+  },
+  {
+    "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/administrative-gender",
+        "code" : "female",
+        "display" : "Female"
+      }]
+    }
+  }],
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "TAX",
+        "display" : "Tax ID number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cpf",
+    "value" : "23456789012"
+  },
+  {
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "HC",
+        "display" : "Health Card Number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cns",
+    "value" : "876543210987654"
+  }],
+  "name" : [{
+    "use" : "official",
+    "family" : "Souza",
+    "given" : ["Maria",
+    "Fernanda"]
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55 21 99876-5432",
+    "use" : "mobile"
+  },
+  {
+    "system" : "email",
+    "value" : "maria.fernanda@example.com",
+    "use" : "home"
+  }],
+  "gender" : "female",
+  "birthDate" : "1992-07-15",
+  "address" : [{
+    "use" : "home",
+    "type" : "both",
+    "text" : "Avenida Atlântica, 1702, Copacabana, Rio de Janeiro, RJ, 22021-001",
+    "line" : ["Avenida Atlântica, 1702"],
+    "city" : "Rio de Janeiro",
+    "state" : "RJ",
+    "postalCode" : "22021-001",
+    "country" : "Brasil"
+  }]
+}

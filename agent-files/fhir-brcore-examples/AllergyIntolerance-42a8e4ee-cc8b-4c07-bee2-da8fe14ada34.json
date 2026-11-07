@@ -1,0 +1,50 @@
+{
+  "resourceType" : "AllergyIntolerance",
+  "id" : "42a8e4ee-cc8b-4c07-bee2-da8fe14ada34",
+  "language" : "pt-BR",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><p class=\"res-header-id\"><b>Narrativa gerada: AllergyIntolerance 42a8e4ee-cc8b-4c07-bee2-da8fe14ada34</b></p><a name=\"42a8e4ee-cc8b-4c07-bee2-da8fe14ada34\"> </a><a name=\"hc42a8e4ee-cc8b-4c07-bee2-da8fe14ada34\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>clinicalStatus</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/allergyintolerance-verification confirmed}\">Confirmed</span></p><p><b>type</b>: Allergy</p><p><b>category</b>: Food</p><p><b>criticality</b>: High Risk</p><p><b>code</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRAlergenosCBARA veneno-vespa}\">Alergia a veneno de vespa</span></p><p><b>patient</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">João Pereira</a></p><h3>Reactions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Manifestation</b></td><td><b>Onset</b></td><td><b>Severity</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRMedDRA 10002424}\">Angioedema</span></td><td>2023-05-12</td><td>Moderate</td></tr></table></div>"
+  },
+  "clinicalStatus" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+      "code" : "active",
+      "display" : "Active"
+    }]
+  },
+  "verificationStatus" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+      "code" : "confirmed",
+      "display" : "Confirmed"
+    }]
+  },
+  "type" : "allergy",
+  "category" : ["food"],
+  "criticality" : "high",
+  "code" : {
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAlergenosCBARA",
+      "code" : "veneno-vespa",
+      "display" : "Veneno de vespa"
+    }],
+    "text" : "Alergia a veneno de vespa"
+  },
+  "patient" : {
+    "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "display" : "João Pereira"
+  },
+  "reaction" : [{
+    "manifestation" : [{
+      "coding" : [{
+        "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRMedDRA",
+        "code" : "10002424",
+        "display" : "angioedema"
+      }],
+      "text" : "Angioedema"
+    }],
+    "onset" : "2023-05-12",
+    "severity" : "moderate"
+  }]
+}

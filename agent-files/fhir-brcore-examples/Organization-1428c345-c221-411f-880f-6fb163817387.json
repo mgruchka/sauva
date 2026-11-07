@@ -1,0 +1,97 @@
+{
+  "resourceType" : "Organization",
+  "id" : "1428c345-c221-411f-880f-6fb163817387",
+  "language" : "pt-BR",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><p class=\"res-header-id\"><b>Narrativa gerada: Organization 1428c345-c221-411f-880f-6fb163817387</b></p><a name=\"1428c345-c221-411f-880f-6fb163817387\"> </a><a name=\"hc1428c345-c221-411f-880f-6fb163817387\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>identifier</b>: Tax ID number/61590410000124\u00a0(utilização:\u00a0official,\u00a0), Provider number/2079127\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude 5}\">Hospital Geral</span></p><p><b>name</b>: Hospital Sírio-Libanês</p><p><b>alias</b>: HSL</p><p><b>telecom</b>: <a href=\"tel:+55-11-3394-0200\">+55-11-3394-0200</a>, <a href=\"mailto:contato@siriolibanes.com.br\">contato@siriolibanes.com.br</a>, fax: +55-11-3394-0299(Work)</p><p><b>address</b>: Rua Dona Adma Jafet, 91 São Paulo SP 01308-050 BR (work)</p><blockquote><p><b>contact</b></p><p><b>purpose</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/contactentity-type ADMIN}\">Administrative</span></p><p><b>name</b>: Departamento Administrativo</p><p><b>telecom</b>: <a href=\"tel:+55-11-3394-0300\">+55-11-3394-0300</a>, <a href=\"mailto:administracao@siriolibanes.com.br\">administracao@siriolibanes.com.br</a></p></blockquote></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "TAX",
+        "display" : "Tax ID number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cnpj",
+    "value" : "61590410000124",
+    "assigner" : {
+      "display" : "Cadastro Nacional da Pessoa Jurídica (CNPJ)"
+    }
+  },
+  {
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "PRN",
+        "display" : "Provider number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cnes",
+    "value" : "2079127",
+    "assigner" : {
+      "display" : "Número no Cadastro Nacional de Estabelecimentos de Saúde (CNES)"
+    }
+  }],
+  "active" : true,
+  "type" : [{
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+      "code" : "5",
+      "display" : "HOSPITAL GERAL"
+    }],
+    "text" : "Hospital Geral"
+  }],
+  "name" : "Hospital Sírio-Libanês",
+  "alias" : ["HSL"],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55-11-3394-0200",
+    "use" : "work"
+  },
+  {
+    "system" : "email",
+    "value" : "contato@siriolibanes.com.br",
+    "use" : "work"
+  },
+  {
+    "system" : "fax",
+    "value" : "+55-11-3394-0299",
+    "use" : "work"
+  }],
+  "address" : [{
+    "use" : "work",
+    "type" : "both",
+    "line" : ["Rua Dona Adma Jafet, 91"],
+    "city" : "São Paulo",
+    "district" : "Bela Vista",
+    "state" : "SP",
+    "postalCode" : "01308-050",
+    "country" : "BR"
+  }],
+  "contact" : [{
+    "purpose" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/contactentity-type",
+        "code" : "ADMIN",
+        "display" : "Administrative"
+      }]
+    },
+    "name" : {
+      "text" : "Departamento Administrativo"
+    },
+    "telecom" : [{
+      "system" : "phone",
+      "value" : "+55-11-3394-0300",
+      "use" : "work"
+    },
+    {
+      "system" : "email",
+      "value" : "administracao@siriolibanes.com.br",
+      "use" : "work"
+    }]
+  }]
+}

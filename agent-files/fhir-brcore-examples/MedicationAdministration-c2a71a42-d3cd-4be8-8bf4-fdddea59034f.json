@@ -1,0 +1,55 @@
+{
+  "resourceType" : "MedicationAdministration",
+  "id" : "c2a71a42-d3cd-4be8-8bf4-fdddea59034f",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: MedicationAdministration c2a71a42-d3cd-4be8-8bf4-fdddea59034f</b></p><a name=\"c2a71a42-d3cd-4be8-8bf4-fdddea59034f\"> </a><a name=\"hcc2a71a42-d3cd-4be8-8bf4-fdddea59034f\"> </a><p><b>status</b>: Completed</p><p><b>medication</b>: <span title=\"Códigos:{http://www.whocc.no/atc J01CA04}\">Amoxicilina 500mg cápsula</span></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">João Carlos</a></p><p><b>context</b>: <a href=\"Encounter-c6d553d8-cce0-404b-9d1f-eeffbf7fc6df.html\">Ambulatorial</a></p><p><b>effective</b>: 2024-12-18 08:00:00-0300</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></td></tr></table><h3>Dosages</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Text</b></td><td><b>Site</b></td><td><b>Route</b></td><td><b>Dose</b></td></tr><tr><td style=\"display: none\">*</td><td>Administrar 1 cápsula via oral.</td><td><span title=\"Códigos:{http://snomed.info/sct 74262004}\">Cavidade oral</span></td><td><span title=\"Códigos:{http://standardterms.edqm.eu 20053000}\">Oral use</span></td><td>500 mg<span style=\"background: LightGoldenRodYellow\"> (Detalhes: UCUM códigomg = 'mg')</span></td></tr></table></div>"
+  },
+  "status" : "completed",
+  "medicationCodeableConcept" : {
+    "coding" : [{
+      "system" : "http://www.whocc.no/atc",
+      "code" : "J01CA04",
+      "display" : "amoxicilina"
+    }],
+    "text" : "Amoxicilina 500mg cápsula"
+  },
+  "subject" : {
+    "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "display" : "João Carlos"
+  },
+  "context" : {
+    "reference" : "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+    "display" : "Ambulatorial"
+  },
+  "effectiveDateTime" : "2024-12-18T08:00:00-03:00",
+  "performer" : [{
+    "actor" : {
+      "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display" : "Maria Clara"
+    }
+  }],
+  "dosage" : {
+    "text" : "Administrar 1 cápsula via oral.",
+    "site" : {
+      "coding" : [{
+        "system" : "http://snomed.info/sct",
+        "code" : "74262004"
+      }],
+      "text" : "Cavidade oral"
+    },
+    "route" : {
+      "coding" : [{
+        "system" : "http://standardterms.edqm.eu",
+        "code" : "20053000",
+        "display" : "Oral use"
+      }]
+    },
+    "dose" : {
+      "value" : 500,
+      "unit" : "mg",
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mg"
+    }
+  }
+}

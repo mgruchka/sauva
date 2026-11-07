@@ -1,0 +1,40 @@
+{
+  "resourceType" : "PractitionerRole",
+  "id" : "medica-esf-01",
+  "meta" : {
+    "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: PractitionerRole medica-esf-01</b></p><a name=\"medica-esf-01\"> </a><a name=\"hcmedica-esf-01\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-br-core-practitionerrole.html\">BRCorePractitionerRole</a></p></div><p><b>identifier</b>: Medical License number/100001-SP\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>period</b>: 2024-01-01 --&gt; (em curso)</p><p><b>practitioner</b>: Ana Paula Souza</p><p><b>organization</b>: <a href=\"Organization-ubs-vila-esperanca.html\">UBS Vila Esperança</a></p><p><b>code</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO 225142}\">MEDICO DA ESTRATEGIA DE SAUDE DA FAMILIA</span></p></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "MD"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/crm-sp",
+    "value" : "100001-SP"
+  }],
+  "active" : true,
+  "period" : {
+    "start" : "2024-01-01"
+  },
+  "practitioner" : {
+    "display" : "Ana Paula Souza"
+  },
+  "organization" : {
+    "reference" : "Organization/ubs-vila-esperanca",
+    "display" : "UBS Vila Esperança"
+  },
+  "code" : [{
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+      "code" : "225142",
+      "display" : "MEDICO DA ESTRATEGIA DE SAUDE DA FAMILIA"
+    }]
+  }]
+}

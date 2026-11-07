@@ -1,0 +1,34 @@
+{
+  "resourceType" : "CareTeam",
+  "id" : "br-core-careteam-emad-ine-local",
+  "meta" : {
+    "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careteam"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: CareTeam br-core-careteam-emad-ine-local</b></p><a name=\"br-core-careteam-emad-ine-local\"> </a><a name=\"hcbr-core-careteam-emad-ine-local\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-br-core-careteam.html\">BR-Core CareTeam</a></p></div><p><b>identifier</b>: <code>https://terminologia.saude.gov.br/fhir/NamingSystem/ine</code>/0000654321\u00a0(utilização:\u00a0official,\u00a0), <code>https://sms-exemplo.gov.br/fhir/NamingSystem/equipes</code>/EMAD-NORTE-03\u00a0(utilização:\u00a0secondary,\u00a0)</p><p><b>status</b>: Active</p><p><b>name</b>: EMAD Regional Norte 03</p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Member</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-medico-emad-03.html\">PractitionerRole MEDICO CLINICO</a></td></tr></table><p><b>managingOrganization</b>: <a href=\"Organization-sms-exemplo.html\">Organization Secretaria Municipal de Saúde Exemplo</a></p></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "system" : "https://terminologia.saude.gov.br/fhir/NamingSystem/ine",
+    "value" : "0000654321"
+  },
+  {
+    "use" : "secondary",
+    "system" : "https://sms-exemplo.gov.br/fhir/NamingSystem/equipes",
+    "value" : "EMAD-NORTE-03",
+    "assigner" : {
+      "reference" : "Organization/sms-exemplo"
+    }
+  }],
+  "status" : "active",
+  "name" : "EMAD Regional Norte 03",
+  "participant" : [{
+    "member" : {
+      "reference" : "PractitionerRole/medico-emad-03"
+    }
+  }],
+  "managingOrganization" : [{
+    "reference" : "Organization/sms-exemplo"
+  }]
+}

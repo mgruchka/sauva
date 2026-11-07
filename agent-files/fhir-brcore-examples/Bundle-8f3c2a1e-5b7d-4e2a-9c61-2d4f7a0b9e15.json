@@ -1,0 +1,1273 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "8f3c2a1e-5b7d-4e2a-9c61-2d4f7a0b9e15",
+  "meta" : {
+    "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-bundle-documento"]
+  },
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:uuid:8f3c2a1e-5b7d-4e2a-9c61-2d4f7a0b9e15"
+  },
+  "type" : "document",
+  "timestamp" : "2024-02-06T10:05:00Z",
+  "entry" : [{
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Composition/5c0878bd-a787-489d-82aa-82f4fb55909e",
+    "resource" : {
+      "resourceType" : "Composition",
+      "id" : "5c0878bd-a787-489d-82aa-82f4fb55909e",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Composition_5c0878bd-a787-489d-82aa-82f4fb55909e\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Composition 5c0878bd-a787-489d-82aa-82f4fb55909e</b></p><a name=\"5c0878bd-a787-489d-82aa-82f4fb55909e\"> </a><a name=\"hc5c0878bd-a787-489d-82aa-82f4fb55909e\"> </a><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Códigos:{http://loinc.org 11488-4}\">Nota de Consulta Especializada</span></p><p><b>category</b>: <span title=\"Códigos:{http://loinc.org 11488-4}\">Consult note</span></p><p><b>encounter</b>: <a href=\"Encounter-c6d553d8-cce0-404b-9d1f-eeffbf7fc6df.html\">Ambulatorial</a></p><p><b>date</b>: 2024-02-06 10:00:00+0000</p><p><b>author</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>title</b>: Nota de Consulta Especializada</p><p><b>confidentiality</b>: normal</p><h3>Attesters</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Mode</b></td><td><b>Time</b></td><td><b>Party</b></td></tr><tr><td style=\"display: none\">*</td><td>Professional</td><td>2024-02-06 10:30:00+0000</td><td><a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></td></tr></table><p><b>custodian</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p></div>"
+      },
+      "status" : "final",
+      "type" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "11488-4",
+          "display" : "Consult note"
+        }],
+        "text" : "Nota de Consulta Especializada"
+      },
+      "category" : [{
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "11488-4",
+          "display" : "Consult note"
+        }]
+      }],
+      "subject" : {
+        "reference" : "Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+        "display" : "Ana Beatriz"
+      },
+      "encounter" : {
+        "reference" : "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+        "display" : "Ambulatorial"
+      },
+      "date" : "2024-02-06T10:00:00Z",
+      "author" : [{
+        "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display" : "Maria Clara"
+      }],
+      "title" : "Nota de Consulta Especializada",
+      "confidentiality" : "N",
+      "attester" : [{
+        "mode" : "professional",
+        "time" : "2024-02-06T10:30:00Z",
+        "party" : {
+          "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display" : "Maria Clara"
+        }
+      }],
+      "custodian" : {
+        "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display" : "Hospital Sírio-Libanês"
+      },
+      "section" : [{
+        "title" : "Diagnósticos Avaliados",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "57852-6",
+            "display" : "Problem list Reported"
+          }]
+        },
+        "entry" : [{
+          "reference" : "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5"
+        }]
+      },
+      {
+        "title" : "Alergias e Intolerâncias",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "48765-2",
+            "display" : "Allergies and adverse reactions Document"
+          }]
+        },
+        "entry" : [{
+          "reference" : "AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34"
+        }]
+      },
+      {
+        "title" : "Solicitações de Procedimentos",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "42349-1",
+            "display" : "Reason for referral (narrative)"
+          }]
+        },
+        "entry" : [{
+          "reference" : "ServiceRequest/d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85"
+        }]
+      },
+      {
+        "title" : "Plano de Cuidado",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "18776-5",
+            "display" : "Plan of care note"
+          }]
+        },
+        "entry" : [{
+          "reference" : "CarePlan/1ed343f2-5231-40d6-a6ea-4428105b7532"
+        }]
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/AllergyIntolerance/42a8e4ee-cc8b-4c07-bee2-da8fe14ada34",
+    "resource" : {
+      "resourceType" : "AllergyIntolerance",
+      "id" : "42a8e4ee-cc8b-4c07-bee2-da8fe14ada34",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"AllergyIntolerance_42a8e4ee-cc8b-4c07-bee2-da8fe14ada34\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: AllergyIntolerance 42a8e4ee-cc8b-4c07-bee2-da8fe14ada34</b></p><a name=\"42a8e4ee-cc8b-4c07-bee2-da8fe14ada34\"> </a><a name=\"hc42a8e4ee-cc8b-4c07-bee2-da8fe14ada34\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>clinicalStatus</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/allergyintolerance-verification confirmed}\">Confirmed</span></p><p><b>type</b>: Allergy</p><p><b>category</b>: Food</p><p><b>criticality</b>: High Risk</p><p><b>code</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRAlergenosCBARA veneno-vespa}\">Alergia a veneno de vespa</span></p><p><b>patient</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">João Pereira</a></p><h3>Reactions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Manifestation</b></td><td><b>Onset</b></td><td><b>Severity</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRMedDRA 10002424}\">Angioedema</span></td><td>2023-05-12</td><td>Moderate</td></tr></table></div>"
+      },
+      "clinicalStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code" : "active",
+          "display" : "Active"
+        }]
+      },
+      "verificationStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code" : "confirmed",
+          "display" : "Confirmed"
+        }]
+      },
+      "type" : "allergy",
+      "category" : ["food"],
+      "criticality" : "high",
+      "code" : {
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAlergenosCBARA",
+          "code" : "veneno-vespa",
+          "display" : "Veneno de vespa"
+        }],
+        "text" : "Alergia a veneno de vespa"
+      },
+      "patient" : {
+        "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+        "display" : "João Pereira"
+      },
+      "reaction" : [{
+        "manifestation" : [{
+          "coding" : [{
+            "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRMedDRA",
+            "code" : "10002424",
+            "display" : "angioedema"
+          }],
+          "text" : "Angioedema"
+        }],
+        "onset" : "2023-05-12",
+        "severity" : "moderate"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/CarePlan/1ed343f2-5231-40d6-a6ea-4428105b7532",
+    "resource" : {
+      "resourceType" : "CarePlan",
+      "id" : "1ed343f2-5231-40d6-a6ea-4428105b7532",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_1ed343f2-5231-40d6-a6ea-4428105b7532\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: CarePlan 1ed343f2-5231-40d6-a6ea-4428105b7532</b></p><a name=\"1ed343f2-5231-40d6-a6ea-4428105b7532\"> </a><a name=\"hc1ed343f2-5231-40d6-a6ea-4428105b7532\"> </a><p><b>status</b>: Active</p><p><b>intent</b>: Plan</p><p><b>title</b>: Plano de Cuidados para Asma Persistente Moderada</p><p><b>description</b>: Plano de cuidado voltado para controle de asma e monitoramento do paciente.</p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">José da Silva</a></p><p><b>created</b>: 2024-12-19</p><p><b>contributor</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p><p><b>addresses</b>: <a href=\"Condition-91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5.html\">Dispnéia</a></p><blockquote><p><b>activity</b></p><h3>Details</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Kind</b></td><td><b>Code</b></td><td><b>Status</b></td><td><b>Scheduled[x]</b></td><td><b>Performer</b></td><td><b>Description</b></td></tr><tr><td style=\"display: none\">*</td><td>ServiceRequest</td><td><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRSubGrupoTabelaSUS 0309}\">Terapias especializadas</span></td><td>Scheduled</td><td>2024-12-20 --&gt; 2024-12-20</td><td><a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></td><td>Consulta periódica para acompanhamento da asma persistente moderada.</td></tr></table></blockquote></div>"
+      },
+      "status" : "active",
+      "intent" : "plan",
+      "title" : "Plano de Cuidados para Asma Persistente Moderada",
+      "description" : "Plano de cuidado voltado para controle de asma e monitoramento do paciente.",
+      "subject" : {
+        "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+        "display" : "José da Silva"
+      },
+      "created" : "2024-12-19",
+      "contributor" : [{
+        "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display" : "Hospital Sírio-Libanês"
+      }],
+      "addresses" : [{
+        "reference" : "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+        "display" : "Dispnéia"
+      }],
+      "activity" : [{
+        "detail" : {
+          "kind" : "ServiceRequest",
+          "code" : {
+            "coding" : [{
+              "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRSubGrupoTabelaSUS",
+              "code" : "0309",
+              "display" : "Terapias especializadas"
+            }]
+          },
+          "status" : "scheduled",
+          "scheduledPeriod" : {
+            "start" : "2024-12-20",
+            "end" : "2024-12-20"
+          },
+          "performer" : [{
+            "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+            "display" : "Hospital Sírio-Libanês"
+          }],
+          "description" : "Consulta periódica para acompanhamento da asma persistente moderada."
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+    "resource" : {
+      "resourceType" : "Condition",
+      "id" : "91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"Condition_91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Condition 91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5</b></p><a name=\"91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5\"> </a><a name=\"hc91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>clinicalStatus</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>category</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCategoriaDiagnostico 01}\">Principal</span></p><p><b>severity</b>: <span title=\"Códigos:{http://snomed.info/sct 6736007}\">Moderate severity</span></p><p><b>code</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10 B34.2}\">Infecção por coronavírus de localização não especificada</span></p><p><b>bodySite</b>: <span title=\"Códigos:{http://snomed.info/sct 80891009}\">Coração</span></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">João Carlos Silva</a></p><p><b>encounter</b>: <a href=\"Encounter-c6d553d8-cce0-404b-9d1f-eeffbf7fc6df.html\">Ambulatorial</a></p><p><b>onset</b>: 2024-03-28</p><p><b>recordedDate</b>: 2024-04-05 10:00:00+0000</p><p><b>recorder</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>asserter</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><h3>Evidences</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Code</b></td><td><b>Detail</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10 R50.9}, {https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10 R05}\">Febre não especificada</span></td><td><a href=\"Observation-07ce5462-f77b-4ad6-af8c-2f67a6500b97.html\">Vital Signs</a></td></tr></table><p><b>note</b>: </p><blockquote><div><p>Paciente apresentou melhora significativa após início do tratamento com antibióticos.</p>\n</div></blockquote></div>"
+      },
+      "clinicalStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code" : "active",
+          "display" : "Active"
+        }]
+      },
+      "verificationStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code" : "confirmed",
+          "display" : "Confirmed"
+        }]
+      },
+      "category" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCategoriaDiagnostico",
+          "code" : "01",
+          "display" : "Principal"
+        }]
+      }],
+      "severity" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "6736007"
+        }]
+      },
+      "code" : {
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+          "code" : "B34.2",
+          "display" : "Infecção por coronavírus de localização não especificada"
+        }]
+      },
+      "bodySite" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "80891009",
+          "display" : "Heart structure (body structure)"
+        }],
+        "text" : "Coração"
+      }],
+      "subject" : {
+        "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+        "type" : "Patient",
+        "display" : "João Carlos Silva"
+      },
+      "encounter" : {
+        "reference" : "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+        "display" : "Ambulatorial"
+      },
+      "onsetDateTime" : "2024-03-28",
+      "recordedDate" : "2024-04-05T10:00:00Z",
+      "recorder" : {
+        "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display" : "Maria Clara"
+      },
+      "asserter" : {
+        "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display" : "Maria Clara"
+      },
+      "evidence" : [{
+        "code" : [{
+          "coding" : [{
+            "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+            "code" : "R50.9",
+            "display" : "Febre não especificada"
+          },
+          {
+            "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+            "code" : "R05",
+            "display" : "Tosse"
+          }]
+        }],
+        "detail" : [{
+          "reference" : "Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+          "display" : "Vital Signs"
+        }]
+      }],
+      "note" : [{
+        "text" : "Paciente apresentou melhora significativa após início do tratamento com antibióticos."
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+    "resource" : {
+      "resourceType" : "Encounter",
+      "id" : "c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"Encounter_c6d553d8-cce0-404b-9d1f-eeffbf7fc6df\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Encounter c6d553d8-cce0-404b-9d1f-eeffbf7fc6df</b></p><a name=\"c6d553d8-cce0-404b-9d1f-eeffbf7fc6df\"> </a><a name=\"hcc6d553d8-cce0-404b-9d1f-eeffbf7fc6df\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-AMB\">ActCode: AMB</a> (Ambulatory)</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRAtendimentoPrestado 02}\">Ambulatorial</span></p><p><b>priority</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/v3-ActPriority R}\">Rotina</span></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">João Carlos Silva</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType ADM}\">Executor Primário</span></td><td><a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></td></tr></table><p><b>period</b>: 2023-12-12 09:00:00-0300 --&gt; 2023-12-12 09:30:00-0300</p><p><b>reasonCode</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10 R06.0}\">Dor precordial</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td><td><b>Rank</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Condition-91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5.html\">Dispnéia</a></td><td><span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/diagnosis-role CC}\">Queixa Principal</span></td><td>1</td></tr></table><h3>Locations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Location</b></td><td><b>Status</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Location-9fea09cf-0529-4f7d-bad0-80cd5fd00cba.html\">HOSPITAL DIA</a></td><td>Active</td></tr></table><p><b>serviceProvider</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p></div>"
+      },
+      "status" : "finished",
+      "class" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code" : "AMB",
+        "display" : "Ambulatory"
+      },
+      "type" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAtendimentoPrestado",
+          "code" : "02",
+          "display" : "AMBULATORIAL"
+        }],
+        "text" : "Ambulatorial"
+      }],
+      "priority" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+          "code" : "R",
+          "display" : "routine"
+        }],
+        "text" : "Rotina"
+      },
+      "subject" : {
+        "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+        "display" : "João Carlos Silva"
+      },
+      "participant" : [{
+        "type" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+            "code" : "ADM",
+            "display" : "admitter"
+          }],
+          "text" : "Executor Primário"
+        }],
+        "individual" : {
+          "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+          "display" : "Maria Clara"
+        }
+      }],
+      "period" : {
+        "start" : "2023-12-12T09:00:00-03:00",
+        "end" : "2023-12-12T09:30:00-03:00"
+      },
+      "reasonCode" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+          "code" : "R06.0",
+          "display" : "Dispnéia"
+        }],
+        "text" : "Dor precordial"
+      }],
+      "diagnosis" : [{
+        "condition" : {
+          "reference" : "Condition/91d8d24f-a70d-4ebf-8dea-71cf92ce1bd5",
+          "display" : "Dispnéia"
+        },
+        "use" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code" : "CC",
+            "display" : "Chief complaint"
+          }],
+          "text" : "Queixa Principal"
+        },
+        "rank" : 1
+      }],
+      "location" : [{
+        "location" : {
+          "reference" : "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+          "display" : "HOSPITAL DIA"
+        },
+        "status" : "active"
+      }],
+      "serviceProvider" : {
+        "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display" : "Hospital Sírio-Libanês"
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Organization/1428c345-c221-411f-880f-6fb163817387",
+    "resource" : {
+      "resourceType" : "Organization",
+      "id" : "1428c345-c221-411f-880f-6fb163817387",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"Organization_1428c345-c221-411f-880f-6fb163817387\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Organization 1428c345-c221-411f-880f-6fb163817387</b></p><a name=\"1428c345-c221-411f-880f-6fb163817387\"> </a><a name=\"hc1428c345-c221-411f-880f-6fb163817387\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>identifier</b>: Tax ID number/61590410000124\u00a0(utilização:\u00a0official,\u00a0), Provider number/2079127\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude 5}\">Hospital Geral</span></p><p><b>name</b>: Hospital Sírio-Libanês</p><p><b>alias</b>: HSL</p><p><b>telecom</b>: <a href=\"tel:+55-11-3394-0200\">+55-11-3394-0200</a>, <a href=\"mailto:contato@siriolibanes.com.br\">contato@siriolibanes.com.br</a>, fax: +55-11-3394-0299(Work)</p><p><b>address</b>: Rua Dona Adma Jafet, 91 São Paulo SP 01308-050 BR (work)</p><blockquote><p><b>contact</b></p><p><b>purpose</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/contactentity-type ADMIN}\">Administrative</span></p><p><b>name</b>: Departamento Administrativo</p><p><b>telecom</b>: <a href=\"tel:+55-11-3394-0300\">+55-11-3394-0300</a>, <a href=\"mailto:administracao@siriolibanes.com.br\">administracao@siriolibanes.com.br</a></p></blockquote></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "TAX",
+            "display" : "Tax ID number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cnpj",
+        "value" : "61590410000124",
+        "assigner" : {
+          "display" : "Cadastro Nacional da Pessoa Jurídica (CNPJ)"
+        }
+      },
+      {
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PRN",
+            "display" : "Provider number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cnes",
+        "value" : "2079127",
+        "assigner" : {
+          "display" : "Número no Cadastro Nacional de Estabelecimentos de Saúde (CNES)"
+        }
+      }],
+      "active" : true,
+      "type" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+          "code" : "5",
+          "display" : "HOSPITAL GERAL"
+        }],
+        "text" : "Hospital Geral"
+      }],
+      "name" : "Hospital Sírio-Libanês",
+      "alias" : ["HSL"],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55-11-3394-0200",
+        "use" : "work"
+      },
+      {
+        "system" : "email",
+        "value" : "contato@siriolibanes.com.br",
+        "use" : "work"
+      },
+      {
+        "system" : "fax",
+        "value" : "+55-11-3394-0299",
+        "use" : "work"
+      }],
+      "address" : [{
+        "use" : "work",
+        "type" : "both",
+        "line" : ["Rua Dona Adma Jafet, 91"],
+        "city" : "São Paulo",
+        "district" : "Bela Vista",
+        "state" : "SP",
+        "postalCode" : "01308-050",
+        "country" : "BR"
+      }],
+      "contact" : [{
+        "purpose" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/contactentity-type",
+            "code" : "ADMIN",
+            "display" : "Administrative"
+          }]
+        },
+        "name" : {
+          "text" : "Departamento Administrativo"
+        },
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "+55-11-3394-0300",
+          "use" : "work"
+        },
+        {
+          "system" : "email",
+          "value" : "administracao@siriolibanes.com.br",
+          "use" : "work"
+        }]
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Patient/b1997888-85fd-41b6-bf94-6242cf3c8265",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "b1997888-85fd-41b6-bf94-6242cf3c8265",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"Patient_b1997888-85fd-41b6-bf94-6242cf3c8265\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Patient b1997888-85fd-41b6-bf94-6242cf3c8265</b></p><a name=\"b1997888-85fd-41b6-bf94-6242cf3c8265\"> </a><a name=\"hcb1997888-85fd-41b6-bf94-6242cf3c8265\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Ana Beatriz Oliveira (official) Female, DoB: 2018-09-25 ( Health Card Number: NamingSystemCNS#765432109876543\u00a0(use:\u00a0official,\u00a0))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\">Tax ID number/34567890123\u00a0(utilização:\u00a0official,\u00a0)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Formas de contactar o doente\">Detalhes do contacto</td><td colspan=\"3\"><ul><li><a href=\"tel:+553199876-5432\">+55 31 99876-5432</a></li><li>Rua da Bahia, 300, Centro, Belo Horizonte, MG, 30160-010(home)</li><li>Aldeia Kaa Guy Mirim, Itanhaém, SP(old)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Contacto nomeado: mother\">mother:</td><td colspan=\"3\"><ul><li>Juliana Cristina Oliveira (Official) (Female)</li><li>Rua da Bahia, 300, Centro, Belo Horizonte, MG, 30160-010(home)</li><li><a href=\"tel:+553199765-4321\">+55 31 99765-4321</a></li><li><a href=\"mailto:juliana.oliveira@example.com\">juliana.oliveira@example.com</a></li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The registered place of birth of the patient. A sytem may use the address.text if they don't store the birthPlace address in discrete elements.\"><a href=\"http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-patient-birthPlace.html\">Patient Birth Place</a></td><td colspan=\"3\">Belo Horizonte MG Brasil </td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define a raça do indivíduo\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-raca-br-ips.html\">Raça BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor 02}\">Preta</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define o sexo no nascimento do paciente\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-sexo-nascimento-br-ips.html\">Sexo no nascimento BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{http://hl7.org/fhir/administrative-gender female}\">Female</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The gender the patient identifies with. The Patient's gender identity is used as guidance (e.g. for staff) about how to interact with the patient.\"><a href=\"http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-patient-genderIdentity.html\">Gender Identity</a></td><td colspan=\"3\"><span title=\"Códigos:{http://snomed.info/sct 446141000124107}\">Identifies as female gender</span></td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+        "valueAddress" : {
+          "city" : "Belo Horizonte",
+          "state" : "MG",
+          "country" : "Brasil"
+        }
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "446141000124107"
+          }]
+        }
+      },
+      {
+        "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor",
+            "code" : "02",
+            "display" : "Preta"
+          }]
+        }
+      },
+      {
+        "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "http://hl7.org/fhir/administrative-gender",
+            "code" : "female",
+            "display" : "Female"
+          }]
+        }
+      }],
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "TAX",
+            "display" : "Tax ID number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cpf",
+        "value" : "34567890123"
+      },
+      {
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "HC",
+            "display" : "Health Card Number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cns",
+        "value" : "765432109876543"
+      }],
+      "name" : [{
+        "use" : "official",
+        "family" : "Oliveira",
+        "given" : ["Ana",
+        "Beatriz"]
+      }],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55 31 99876-5432",
+        "use" : "mobile"
+      }],
+      "gender" : "female",
+      "birthDate" : "2018-09-25",
+      "address" : [{
+        "extension" : [{
+          "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-municipio",
+          "valueCodeableConcept" : {
+            "coding" : [{
+              "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRIBGE",
+              "code" : "3106200",
+              "display" : "Belo Horizonte"
+            }]
+          }
+        }],
+        "use" : "home",
+        "type" : "both",
+        "text" : "Rua da Bahia, 300, Centro, Belo Horizonte, MG, 30160-010",
+        "line" : ["Rua da Bahia, 300"],
+        "city" : "Belo Horizonte",
+        "state" : "MG",
+        "postalCode" : "30160-010",
+        "country" : "Brasil"
+      },
+      {
+        "extension" : [{
+          "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-aldeia",
+          "valueCodeableConcept" : {
+            "coding" : [{
+              "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRAldeia",
+              "code" : "65329",
+              "display" : "KAA GUY MIRIM"
+            }]
+          }
+        },
+        {
+          "url" : "https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-address-municipio",
+          "valueCodeableConcept" : {
+            "coding" : [{
+              "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRIBGE",
+              "code" : "3522109",
+              "display" : "Itanhaém"
+            }]
+          }
+        }],
+        "use" : "old",
+        "type" : "physical",
+        "text" : "Aldeia Kaa Guy Mirim, Itanhaém, SP",
+        "city" : "Itanhaém",
+        "state" : "SP",
+        "country" : "Brasil"
+      }],
+      "contact" : [{
+        "relationship" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code" : "MTH",
+            "display" : "mother"
+          }]
+        }],
+        "name" : {
+          "use" : "official",
+          "family" : "Oliveira",
+          "given" : ["Juliana",
+          "Cristina"]
+        },
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "+55 31 99765-4321",
+          "use" : "mobile"
+        },
+        {
+          "system" : "email",
+          "value" : "juliana.oliveira@example.com",
+          "use" : "home"
+        }],
+        "address" : {
+          "use" : "home",
+          "text" : "Rua da Bahia, 300, Centro, Belo Horizonte, MG, 30160-010",
+          "line" : ["Rua da Bahia, 300"],
+          "city" : "Belo Horizonte",
+          "state" : "MG",
+          "postalCode" : "30160-010",
+          "country" : "Brasil"
+        },
+        "gender" : "female"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+    "resource" : {
+      "resourceType" : "Practitioner",
+      "id" : "d3b61455-f432-48f0-b83b-ba825922d735",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_d3b61455-f432-48f0-b83b-ba825922d735\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Practitioner d3b61455-f432-48f0-b83b-ba825922d735</b></p><a name=\"d3b61455-f432-48f0-b83b-ba825922d735\"> </a><a name=\"hcd3b61455-f432-48f0-b83b-ba825922d735\"> </a><p><b>identifier</b>: Cartão nacional de saúde/123456789101112\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>name</b>: Maria Clara Oliveira (Official)</p><p><b>telecom</b>: <a href=\"tel:+552198765-4321\">+55 21 98765-4321</a>, <a href=\"mailto:maria.oliveira@example.com\">maria.oliveira@example.com</a></p><p><b>address</b>: Av. Central, 456, Bairro Centro, Rio de Janeiro, RJ, 20000-000(work)</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td><td><b>Period</b></td><td><b>Issuer</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"https://terminologia.saude.gov.br/fhir/NamingSystem-cns.html\" title=\"CARTÃO NACIONAL DE SAÚDE\">NamingSystemCNS</a>/225125789542376</td><td><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO 225125}\">MEDICO CLINICO</span></td><td>2010-01-01 --&gt; (em curso)</td><td><a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></td></tr></table></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "HC",
+            "display" : "Health Card Number"
+          }],
+          "text" : "Cartão nacional de saúde"
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cns",
+        "value" : "123456789101112"
+      }],
+      "active" : true,
+      "name" : [{
+        "use" : "official",
+        "family" : "Oliveira",
+        "given" : ["Maria",
+        "Clara"]
+      }],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55 21 98765-4321",
+        "use" : "work"
+      },
+      {
+        "system" : "email",
+        "value" : "maria.oliveira@example.com",
+        "use" : "work"
+      }],
+      "address" : [{
+        "use" : "work",
+        "type" : "both",
+        "text" : "Av. Central, 456, Bairro Centro, Rio de Janeiro, RJ, 20000-000",
+        "line" : ["Av. Central, 456"],
+        "city" : "Rio de Janeiro",
+        "state" : "RJ",
+        "postalCode" : "20000-000",
+        "country" : "Brasil"
+      }],
+      "qualification" : [{
+        "identifier" : [{
+          "system" : "https://saude.gov.br/fhir/sid/cns",
+          "value" : "225125789542376"
+        }],
+        "code" : {
+          "coding" : [{
+            "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+            "code" : "225125",
+            "display" : "MEDICO CLINICO"
+          }]
+        },
+        "period" : {
+          "start" : "2010-01-01"
+        },
+        "issuer" : {
+          "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+          "display" : "Hospital Sírio-Libanês"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/ServiceRequest/d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85",
+    "resource" : {
+      "resourceType" : "ServiceRequest",
+      "id" : "d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"ServiceRequest_d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: ServiceRequest d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85</b></p><a name=\"d70c3a7e-abf0-44ab-ab0b-8c59ffee8f85\"> </a><a name=\"hcd70c3a7e-abf0-44ab-ab0b-8c59ffee8f85\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>identifier</b>: <code>https://hospital.example.org/servicerequest</code>/ServiceRequest12345</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Códigos:{https://fhir.ans.gov.br/CodeSystem/tuss-50 23}\">Exame</span></p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTabelaSUS 0211020036}\">Eletrocardiograma</span></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">José da Silva</a></p><p><b>authoredOn</b>: 2024-12-19</p><p><b>requester</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>performer</b>: <a href=\"PractitionerRole-69ba81d5-37fe-471e-99d8-e53649ccdeed.html\">Clínica Geral</a></p><p><b>reasonCode</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10 R07.2}\">Dor precordial</span></p><p><b>bodySite</b>: <span title=\"Códigos:{http://snomed.info/sct 80891009}\">Coração</span></p><p><b>note</b>: </p><blockquote><div><p>O paciente deve evitar exercícios físicos antes do exame.</p>\n</div></blockquote></div>"
+      },
+      "identifier" : [{
+        "system" : "https://hospital.example.org/servicerequest",
+        "value" : "ServiceRequest12345"
+      }],
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "https://fhir.ans.gov.br/CodeSystem/tuss-50",
+          "code" : "23",
+          "display" : "Exame"
+        }],
+        "text" : "Exame"
+      }],
+      "priority" : "routine",
+      "code" : {
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTabelaSUS",
+          "code" : "0211020036",
+          "display" : "Eletrocardiograma"
+        }],
+        "text" : "Eletrocardiograma"
+      },
+      "subject" : {
+        "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+        "display" : "José da Silva"
+      },
+      "authoredOn" : "2024-12-19",
+      "requester" : {
+        "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display" : "Maria Clara"
+      },
+      "performer" : [{
+        "reference" : "PractitionerRole/69ba81d5-37fe-471e-99d8-e53649ccdeed",
+        "display" : "Clínica Geral"
+      }],
+      "reasonCode" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCID10",
+          "code" : "R07.2",
+          "display" : "Dor precordial"
+        }],
+        "text" : "Dor precordial"
+      }],
+      "bodySite" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "80891009",
+          "display" : "Heart structure (body structure)"
+        }],
+        "text" : "Coração"
+      }],
+      "note" : [{
+        "text" : "O paciente deve evitar exercícios físicos antes do exame."
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"Patient_b2f63a4c-ddaa-4652-8481-ac1ff473104e\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Patient b2f63a4c-ddaa-4652-8481-ac1ff473104e</b></p><a name=\"b2f63a4c-ddaa-4652-8481-ac1ff473104e\"> </a><a name=\"hcb2f63a4c-ddaa-4652-8481-ac1ff473104e\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">João Carlos Silva (official) Male, DoB: 1985-03-01 ( Health Card Number: NamingSystemCNS#987654321098765\u00a0(use:\u00a0official,\u00a0))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\">Tax ID number/12345678901\u00a0(utilização:\u00a0official,\u00a0)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Formas de contactar o doente\">Detalhes do contacto</td><td colspan=\"3\"><ul><li><a href=\"tel:+551198765-4321\">+55 11 98765-4321</a></li><li><a href=\"mailto:joao.carlos@example.com\">joao.carlos@example.com</a></li><li>Rua Exemplo, 123, Bairro Centro, São Paulo, SP, 01000-000(home)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The registered place of birth of the patient. A sytem may use the address.text if they don't store the birthPlace address in discrete elements.\"><a href=\"http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-patient-birthPlace.html\">Patient Birth Place</a></td><td colspan=\"3\">São Paulo SP Brasil </td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define a raça do indivíduo\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-raca-br-ips.html\">Raça BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor 01}\">Branca</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Elemento que define o sexo no nascimento do paciente\"><a href=\"https://ips.saude.gov.br/fhir/v1.0.0/StructureDefinition-sexo-nascimento-br-ips.html\">Sexo no nascimento BR IPS</a></td><td colspan=\"3\"><span title=\"Códigos:{http://hl7.org/fhir/administrative-gender male}\">Male</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The gender the patient identifies with. The Patient's gender identity is used as guidance (e.g. for staff) about how to interact with the patient.\"><a href=\"http://hl7.org/fhir/extensions/5.3.0/StructureDefinition-patient-genderIdentity.html\">Gender Identity</a></td><td colspan=\"3\"><span title=\"Códigos:{http://snomed.info/sct 446151000124109}\">Identifies as male gender</span></td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+        "valueAddress" : {
+          "city" : "São Paulo",
+          "state" : "SP",
+          "country" : "Brasil"
+        }
+      },
+      {
+        "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/raca-br-ips",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRRacaCor",
+            "code" : "01",
+            "display" : "Branca"
+          }]
+        }
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "446151000124109"
+          }]
+        }
+      },
+      {
+        "url" : "https://ips.saude.gov.br/fhir/StructureDefinition/sexo-nascimento-br-ips",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "http://hl7.org/fhir/administrative-gender",
+            "code" : "male",
+            "display" : "Male"
+          }]
+        }
+      }],
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "TAX",
+            "display" : "Tax ID number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cpf",
+        "value" : "12345678901"
+      },
+      {
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "HC",
+            "display" : "Health Card Number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cns",
+        "value" : "987654321098765"
+      }],
+      "name" : [{
+        "use" : "official",
+        "family" : "Silva",
+        "given" : ["João",
+        "Carlos"]
+      }],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55 11 98765-4321",
+        "use" : "mobile"
+      },
+      {
+        "system" : "email",
+        "value" : "joao.carlos@example.com",
+        "use" : "home"
+      }],
+      "gender" : "male",
+      "birthDate" : "1985-03-01",
+      "address" : [{
+        "use" : "home",
+        "type" : "both",
+        "text" : "Rua Exemplo, 123, Bairro Centro, São Paulo, SP, 01000-000",
+        "line" : ["Rua Exemplo, 123"],
+        "city" : "São Paulo",
+        "state" : "SP",
+        "postalCode" : "01000-000",
+        "country" : "Brasil"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Observation/07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "07ce5462-f77b-4ad6-af8c-2f67a6500b97",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_07ce5462-f77b-4ad6-af8c-2f67a6500b97\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Observation 07ce5462-f77b-4ad6-af8c-2f67a6500b97</b></p><a name=\"07ce5462-f77b-4ad6-af8c-2f67a6500b97\"> </a><a name=\"hc07ce5462-f77b-4ad6-af8c-2f67a6500b97\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}\">Vital Signs</span></p><p><b>code</b>: <span title=\"Códigos:{http://loinc.org 85354-9}\">Blood Pressure</span></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">José da Silva</a></p><p><b>encounter</b>: <a href=\"Encounter-c6d553d8-cce0-404b-9d1f-eeffbf7fc6df.html\">Ambulatorial</a></p><p><b>effective</b>: 2025-01-13 08:30:00+0000</p><p><b>issued</b>: 2025-01-13 08:35:00+0000</p><p><b>performer</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Códigos:{http://loinc.org 8480-6}\">Systolic blood pressure</span></p><p><b>value</b>: 120 mmHg<span style=\"background: LightGoldenRodYellow\"> (Detalhes: UCUM códigomm[Hg] = 'mm[Hg]')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Códigos:{http://loinc.org 8462-4}\">Diastolic blood pressure</span></p><p><b>value</b>: 80 mmHg<span style=\"background: LightGoldenRodYellow\"> (Detalhes: UCUM códigomm[Hg] = 'mm[Hg]')</span></p></blockquote></div>"
+      },
+      "status" : "final",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "vital-signs",
+          "display" : "Vital Signs"
+        }]
+      }],
+      "code" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "85354-9",
+          "display" : "Blood pressure panel with all children optional"
+        }],
+        "text" : "Blood Pressure"
+      },
+      "subject" : {
+        "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+        "display" : "José da Silva"
+      },
+      "encounter" : {
+        "reference" : "Encounter/c6d553d8-cce0-404b-9d1f-eeffbf7fc6df",
+        "display" : "Ambulatorial"
+      },
+      "effectiveDateTime" : "2025-01-13T08:30:00Z",
+      "issued" : "2025-01-13T08:35:00Z",
+      "performer" : [{
+        "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display" : "Maria Clara"
+      }],
+      "component" : [{
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "8480-6",
+            "display" : "BP sys"
+          }],
+          "text" : "Systolic blood pressure"
+        },
+        "valueQuantity" : {
+          "value" : 120,
+          "unit" : "mmHg",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "mm[Hg]"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "8462-4",
+            "display" : "BP dias"
+          }],
+          "text" : "Diastolic blood pressure"
+        },
+        "valueQuantity" : {
+          "value" : 80,
+          "unit" : "mmHg",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "mm[Hg]"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+    "resource" : {
+      "resourceType" : "Location",
+      "id" : "9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"Location_9fea09cf-0529-4f7d-bad0-80cd5fd00cba\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Location 9fea09cf-0529-4f7d-bad0-80cd5fd00cba</b></p><a name=\"9fea09cf-0529-4f7d-bad0-80cd5fd00cba\"> </a><a name=\"hc9fea09cf-0529-4f7d-bad0-80cd5fd00cba\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>status</b>: Active</p><p><b>name</b>: Clínica Geral - Enfermaria Norte</p><p><b>alias</b>: Clínica Geral</p><p><b>description</b>: Localização destinada à internação de pacientes clínicos gerais.</p><p><b>mode</b>: Instance</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado 148}\">HOSPITAL DIA</span></p><p><b>telecom</b>: <a href=\"tel:+55-11-3394-0203\">+55-11-3394-0203</a></p><p><b>address</b>: Rua Dona Adma Jafet, 91 3º Andar - Ala Norte São Paulo SP 01308-050 BR (work)</p><p><b>physicalType</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRInstalacoesFisicas 42}\">SALA DE ACOLHIMENTO COM CLASSIFICACAO DE RISCO</span></p><p><b>managingOrganization</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p></div>"
+      },
+      "status" : "active",
+      "name" : "Clínica Geral - Enfermaria Norte",
+      "alias" : ["Clínica Geral"],
+      "description" : "Localização destinada à internação de pacientes clínicos gerais.",
+      "mode" : "instance",
+      "type" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
+          "code" : "148",
+          "display" : "HOSPITAL DIA"
+        }],
+        "text" : "HOSPITAL DIA"
+      }],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55-11-3394-0203",
+        "use" : "work"
+      }],
+      "address" : {
+        "use" : "work",
+        "type" : "physical",
+        "line" : ["Rua Dona Adma Jafet, 91",
+        "3º Andar - Ala Norte"],
+        "city" : "São Paulo",
+        "district" : "Bela Vista",
+        "state" : "SP",
+        "postalCode" : "01308-050",
+        "country" : "BR"
+      },
+      "physicalType" : {
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRInstalacoesFisicas",
+          "code" : "42",
+          "display" : "SALA DE ACOLHIMENTO COM CLASSIFICACAO DE RISCO"
+        }]
+      },
+      "managingOrganization" : {
+        "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+        "display" : "Hospital Sírio-Libanês"
+      }
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/PractitionerRole/69ba81d5-37fe-471e-99d8-e53649ccdeed",
+    "resource" : {
+      "resourceType" : "PractitionerRole",
+      "id" : "69ba81d5-37fe-471e-99d8-e53649ccdeed",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"PractitionerRole_69ba81d5-37fe-471e-99d8-e53649ccdeed\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: PractitionerRole 69ba81d5-37fe-471e-99d8-e53649ccdeed</b></p><a name=\"69ba81d5-37fe-471e-99d8-e53649ccdeed\"> </a><a name=\"hc69ba81d5-37fe-471e-99d8-e53649ccdeed\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>identifier</b>: Número de Registro no Conselho Federal de Medicina/123456-SP\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>period</b>: 2020-01-10 --&gt; (em curso)</p><p><b>practitioner</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>organization</b>: <a href=\"Organization-2b9c99c6-f9c9-42f0-a107-ed5f0d806995.html\">Consultório Médico</a></p><p><b>code</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO 225120}\">MEDICO CARDIOLOGISTA</span></p><p><b>specialty</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO 225120}\">MEDICO CARDIOLOGISTA</span></p><p><b>location</b>: <a href=\"Location-9fea09cf-0529-4f7d-bad0-80cd5fd00cba.html\">Clínica Geral</a></p><p><b>healthcareService</b>: <a href=\"HealthcareService-58a7b01f-72e8-411a-b1c0-5f7728ab7c51.html\">UBS INDIANOPOLIS SIGMUND FREUD</a></p><p><b>telecom</b>: <a href=\"tel:+552112345-6789\">+55 21 12345-6789</a>, <a href=\"mailto:contact@hospitalexemplo.com\">contact@hospitalexemplo.com</a></p><blockquote><p><b>availableTime</b></p><p><b>daysOfWeek</b>: Monday, Tuesday, Wednesday, Thursday, Friday</p><p><b>availableStartTime</b>: 08:00:00</p><p><b>availableEndTime</b>: 17:00:00</p></blockquote><h3>NotAvailables</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Description</b></td><td><b>During</b></td></tr><tr><td style=\"display: none\">*</td><td>On leave</td><td>2024-01-01 --&gt; 2024-01-10</td></tr></table></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "MD",
+            "display" : "Medical License number"
+          }],
+          "text" : "Número de Registro no Conselho Federal de Medicina"
+        },
+        "system" : "https://saude.gov.br/fhir/sid/crm-sp",
+        "value" : "123456-SP"
+      }],
+      "active" : true,
+      "period" : {
+        "start" : "2020-01-10"
+      },
+      "practitioner" : {
+        "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+        "display" : "Maria Clara"
+      },
+      "organization" : {
+        "reference" : "Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+        "display" : "Consultório Médico"
+      },
+      "code" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+          "code" : "225120",
+          "display" : "MEDICO CARDIOLOGISTA"
+        }]
+      }],
+      "specialty" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+          "code" : "225120",
+          "display" : "MEDICO CARDIOLOGISTA"
+        }]
+      }],
+      "location" : [{
+        "reference" : "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+        "display" : "Clínica Geral"
+      }],
+      "healthcareService" : [{
+        "reference" : "HealthcareService/58a7b01f-72e8-411a-b1c0-5f7728ab7c51",
+        "display" : "UBS INDIANOPOLIS SIGMUND FREUD"
+      }],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55 21 12345-6789",
+        "use" : "work"
+      },
+      {
+        "system" : "email",
+        "value" : "contact@hospitalexemplo.com",
+        "use" : "work"
+      }],
+      "availableTime" : [{
+        "daysOfWeek" : ["mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"],
+        "availableStartTime" : "08:00:00",
+        "availableEndTime" : "17:00:00"
+      }],
+      "notAvailable" : [{
+        "description" : "On leave",
+        "during" : {
+          "start" : "2024-01-01",
+          "end" : "2024-01-10"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/HealthcareService/58a7b01f-72e8-411a-b1c0-5f7728ab7c51",
+    "resource" : {
+      "resourceType" : "HealthcareService",
+      "id" : "58a7b01f-72e8-411a-b1c0-5f7728ab7c51",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"HealthcareService_58a7b01f-72e8-411a-b1c0-5f7728ab7c51\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: HealthcareService 58a7b01f-72e8-411a-b1c0-5f7728ab7c51</b></p><a name=\"58a7b01f-72e8-411a-b1c0-5f7728ab7c51\"> </a><a name=\"hc58a7b01f-72e8-411a-b1c0-5f7728ab7c51\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>identifier</b>: <a href=\"https://terminologia.saude.gov.br/fhir/NamingSystem-cnes.html\" title=\"CADASTRO NACIONAL DE ESTABELECIMENTOS DE SAÚDE\">NamingSystemCNES</a>/2788578</p><p><b>active</b>: true</p><p><b>providedBy</b>: <a href=\"Organization-2b9c99c6-f9c9-42f0-a107-ed5f0d806995.html\">Consultório Dr. José Silva</a></p><p><b>category</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude 2}\">CENTRO DE SAUDE/UNIDADE BASICA</span></p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude 2}\">CENTRO DE SAUDE/UNIDADE BASICA</span></p><p><b>name</b>: UBS INDIANOPOLIS SIGMUND FREUD</p><p><b>telecom</b>: <a href=\"tel:+55113394-0200\">+55 11 3394-0200</a>, <a href=\"mailto:administracao@consultoriojosesilva.com.br\">administracao@consultoriojosesilva.com.br</a></p><blockquote><p><b>availableTime</b></p><p><b>daysOfWeek</b>: Monday, Tuesday, Wednesday, Thursday, Friday</p></blockquote><p><b>availabilityExceptions</b>: 24 X 7</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://saude.gov.br/fhir/sid/cnes",
+        "value" : "2788578"
+      }],
+      "active" : true,
+      "providedBy" : {
+        "reference" : "Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+        "display" : "Consultório Dr. José Silva"
+      },
+      "category" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+          "code" : "2",
+          "display" : "CENTRO DE SAUDE/UNIDADE BASICA"
+        }]
+      }],
+      "type" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+          "code" : "2",
+          "display" : "CENTRO DE SAUDE/UNIDADE BASICA"
+        }]
+      }],
+      "name" : "UBS INDIANOPOLIS SIGMUND FREUD",
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55 11 3394-0200",
+        "use" : "work"
+      },
+      {
+        "system" : "email",
+        "value" : "administracao@consultoriojosesilva.com.br",
+        "use" : "work"
+      }],
+      "availableTime" : [{
+        "daysOfWeek" : ["mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"]
+      }],
+      "availabilityExceptions" : "24 X 7"
+    }
+  },
+  {
+    "fullUrl" : "https://br-core.saude.gov.br/fhir/Organization/2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+    "resource" : {
+      "resourceType" : "Organization",
+      "id" : "2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+      "language" : "pt-BR",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><a name=\"Organization_2b9c99c6-f9c9-42f0-a107-ed5f0d806995\"> </a><p class=\"res-header-id\"><b>Narrativa gerada: Organization 2b9c99c6-f9c9-42f0-a107-ed5f0d806995</b></p><a name=\"2b9c99c6-f9c9-42f0-a107-ed5f0d806995\"> </a><a name=\"hc2b9c99c6-f9c9-42f0-a107-ed5f0d806995\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>identifier</b>: Tax ID number/12345678909\u00a0(utilização:\u00a0official,\u00a0), Provider number/7654321\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude 22}\">Consultório Médico</span></p><p><b>name</b>: Consultório Dr. José Silva</p><p><b>alias</b>: Consultório José Silva</p><p><b>telecom</b>: <a href=\"tel:+55-11-98765-4321\">+55-11-98765-4321</a>, <a href=\"mailto:contato@consultoriojosesilva.com.br\">contato@consultoriojosesilva.com.br</a></p><p><b>address</b>: Rua das Clínicas, 123 São Paulo SP 01000-000 BR (work)</p><blockquote><p><b>contact</b></p><p><b>purpose</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/contactentity-type ADMIN}\">Administrative</span></p><p><b>name</b>: Secretaria Administrativa</p><p><b>telecom</b>: <a href=\"tel:+55-11-98765-4321\">+55-11-98765-4321</a>, <a href=\"mailto:administracao@consultoriojosesilva.com.br\">administracao@consultoriojosesilva.com.br</a></p></blockquote></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "TAX",
+            "display" : "Tax ID number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cpf",
+        "value" : "12345678909",
+        "assigner" : {
+          "display" : "Número do CPF"
+        }
+      },
+      {
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PRN",
+            "display" : "Provider number"
+          }]
+        },
+        "system" : "https://saude.gov.br/fhir/sid/cnes",
+        "value" : "7654321",
+        "assigner" : {
+          "display" : "Número CNES - Cadastro Nacional de Estabelecimentos de Saúde"
+        }
+      }],
+      "active" : true,
+      "type" : [{
+        "coding" : [{
+          "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+          "code" : "22",
+          "display" : "CONSULTORIO ISOLADO"
+        }],
+        "text" : "Consultório Médico"
+      }],
+      "name" : "Consultório Dr. José Silva",
+      "alias" : ["Consultório José Silva"],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+55-11-98765-4321",
+        "use" : "work"
+      },
+      {
+        "system" : "email",
+        "value" : "contato@consultoriojosesilva.com.br",
+        "use" : "work"
+      }],
+      "address" : [{
+        "use" : "work",
+        "type" : "physical",
+        "line" : ["Rua das Clínicas, 123"],
+        "city" : "São Paulo",
+        "district" : "Centro",
+        "state" : "SP",
+        "postalCode" : "01000-000",
+        "country" : "BR"
+      }],
+      "contact" : [{
+        "purpose" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/contactentity-type",
+            "code" : "ADMIN",
+            "display" : "Administrative"
+          }]
+        },
+        "name" : {
+          "text" : "Secretaria Administrativa"
+        },
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "+55-11-98765-4321",
+          "use" : "work"
+        },
+        {
+          "system" : "email",
+          "value" : "administracao@consultoriojosesilva.com.br",
+          "use" : "work"
+        }]
+      }]
+    }
+  }]
+}

@@ -1,0 +1,64 @@
+{
+  "resourceType" : "RelatedPerson",
+  "id" : "f48ffa19-7af8-4377-aab8-2c98ca1ce07b",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: RelatedPerson f48ffa19-7af8-4377-aab8-2c98ca1ce07b</b></p><a name=\"f48ffa19-7af8-4377-aab8-2c98ca1ce07b\"> </a><a name=\"hcf48ffa19-7af8-4377-aab8-2c98ca1ce07b\"> </a><p><b>identifier</b>: <a href=\"https://terminologia.saude.gov.br/fhir/NamingSystem-cns.html\" title=\"CARTÃO NACIONAL DE SAÚDE\">NamingSystemCNS</a>/123456789012345\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>patient</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">José da Silva</a></p><p><b>relationship</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/v3-RoleCode SPS}\">Cônjuge</span></p><p><b>name</b>: Maria de Souza(Official)</p><p><b>telecom</b>: <a href=\"tel:+55-11-98765-4321\">+55-11-98765-4321</a>, <a href=\"mailto:maria.souza@example.com\">maria.souza@example.com</a></p><p><b>gender</b>: Female</p><p><b>birthDate</b>: 1985-06-15</p><p><b>address</b>: Rua das Flores, 123 São Paulo SP 01234-567 BR (home)</p><h3>Communications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Language</b></td><td><b>Preferred</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Códigos:{urn:ietf:bcp:47 pt-BR}\">Portuguese (Brazil)</span></td><td>true</td></tr></table></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "system" : "https://saude.gov.br/fhir/sid/cns",
+    "value" : "123456789012345"
+  }],
+  "active" : true,
+  "patient" : {
+    "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "display" : "José da Silva"
+  },
+  "relationship" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "code" : "SPS",
+      "display" : "Spouse"
+    }],
+    "text" : "Cônjuge"
+  }],
+  "name" : [{
+    "use" : "official",
+    "text" : "Maria de Souza",
+    "family" : "Souza",
+    "given" : ["Maria"]
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55-11-98765-4321",
+    "use" : "mobile"
+  },
+  {
+    "system" : "email",
+    "value" : "maria.souza@example.com",
+    "use" : "home"
+  }],
+  "gender" : "female",
+  "birthDate" : "1985-06-15",
+  "address" : [{
+    "use" : "home",
+    "type" : "both",
+    "line" : ["Rua das Flores, 123"],
+    "city" : "São Paulo",
+    "district" : "Jardim Paulista",
+    "state" : "SP",
+    "postalCode" : "01234-567",
+    "country" : "BR"
+  }],
+  "communication" : [{
+    "language" : {
+      "coding" : [{
+        "system" : "urn:ietf:bcp:47",
+        "code" : "pt-BR",
+        "display" : "Portuguese (Brazil)"
+      }]
+    },
+    "preferred" : true
+  }]
+}

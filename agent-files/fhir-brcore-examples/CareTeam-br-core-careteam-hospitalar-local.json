@@ -1,0 +1,29 @@
+{
+  "resourceType" : "CareTeam",
+  "id" : "br-core-careteam-hospitalar-local",
+  "meta" : {
+    "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-careteam"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: CareTeam br-core-careteam-hospitalar-local</b></p><a name=\"br-core-careteam-hospitalar-local\"> </a><a name=\"hcbr-core-careteam-hospitalar-local\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-br-core-careteam.html\">BR-Core CareTeam</a></p></div><p><b>identifier</b>: <code>https://hospital-exemplo.org.br/fhir/NamingSystem/equipes</code>/EMTN-UTI-02\u00a0(utilização:\u00a0usual,\u00a0)</p><p><b>status</b>: Active</p><p><b>name</b>: Equipe Multiprofissional de Terapia Nutricional - UTI Adulto</p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Member</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-nutricionista-uti-01.html\">PractitionerRole NUTRICIONISTA</a></td></tr></table><p><b>managingOrganization</b>: <a href=\"Organization-hospital-exemplo.html\">Organization Hospital Exemplo</a></p></div>"
+  },
+  "identifier" : [{
+    "use" : "usual",
+    "system" : "https://hospital-exemplo.org.br/fhir/NamingSystem/equipes",
+    "value" : "EMTN-UTI-02",
+    "assigner" : {
+      "reference" : "Organization/hospital-exemplo"
+    }
+  }],
+  "status" : "active",
+  "name" : "Equipe Multiprofissional de Terapia Nutricional - UTI Adulto",
+  "participant" : [{
+    "member" : {
+      "reference" : "PractitionerRole/nutricionista-uti-01"
+    }
+  }],
+  "managingOrganization" : [{
+    "reference" : "Organization/hospital-exemplo"
+  }]
+}

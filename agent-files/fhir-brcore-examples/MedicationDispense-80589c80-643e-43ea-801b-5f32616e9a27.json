@@ -1,0 +1,63 @@
+{
+  "resourceType" : "MedicationDispense",
+  "id" : "80589c80-643e-43ea-801b-5f32616e9a27",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: MedicationDispense 80589c80-643e-43ea-801b-5f32616e9a27</b></p><a name=\"80589c80-643e-43ea-801b-5f32616e9a27\"> </a><a name=\"hc80589c80-643e-43ea-801b-5f32616e9a27\"> </a><p><b>status</b>: Completed</p><p><b>medication</b>: <span title=\"Códigos:{http://www.whocc.no/atc M01AX05}\">Glucosamina</span></p><p><b>subject</b>: <a href=\"Patient-b2f63a4c-ddaa-4652-8481-ac1ff473104e.html\">João Carlos</a></p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></td></tr></table><p><b>location</b>: <a href=\"Location-9fea09cf-0529-4f7d-bad0-80cd5fd00cba.html\">Clínica Geral</a></p><p><b>quantity</b>: 30 comprimidos</p><p><b>daysSupply</b>: 30 days<span style=\"background: LightGoldenRodYellow\"> (Detalhes: UCUM códigod = 'd')</span></p><p><b>whenPrepared</b>: 2023-12-12 10:00:00-0300</p><p><b>whenHandedOver</b>: 2023-12-12 10:30:00-0300</p><p><b>destination</b>: <a href=\"Location-9fea09cf-0529-4f7d-bad0-80cd5fd00cba.html\">Clínica Geral</a></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: Tomar 1 comprimido a cada 12 horas após café da manhã e jantar.</p><p><b>timing</b>: 2 por 1 day</p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>(unit 10219000 from http://standardterms.edqm.eu)<span style=\"background: LightGoldenRodYellow\"> (Detalhes: standardterms.edqm.eu código10219000 = 'Tablet')</span></td></tr></table></blockquote></div>"
+  },
+  "status" : "completed",
+  "medicationCodeableConcept" : {
+    "coding" : [{
+      "system" : "http://www.whocc.no/atc",
+      "code" : "M01AX05",
+      "display" : "glicosamina"
+    }],
+    "text" : "Glucosamina"
+  },
+  "subject" : {
+    "reference" : "Patient/b2f63a4c-ddaa-4652-8481-ac1ff473104e",
+    "display" : "João Carlos"
+  },
+  "performer" : [{
+    "actor" : {
+      "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+      "display" : "Maria Clara"
+    }
+  }],
+  "location" : {
+    "reference" : "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+    "display" : "Clínica Geral"
+  },
+  "quantity" : {
+    "value" : 30,
+    "unit" : "comprimidos"
+  },
+  "daysSupply" : {
+    "value" : 30,
+    "unit" : "days",
+    "system" : "http://unitsofmeasure.org",
+    "code" : "d"
+  },
+  "whenPrepared" : "2023-12-12T10:00:00-03:00",
+  "whenHandedOver" : "2023-12-12T10:30:00-03:00",
+  "destination" : {
+    "reference" : "Location/9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+    "display" : "Clínica Geral"
+  },
+  "dosageInstruction" : [{
+    "text" : "Tomar 1 comprimido a cada 12 horas após café da manhã e jantar.",
+    "timing" : {
+      "repeat" : {
+        "frequency" : 2,
+        "period" : 1,
+        "periodUnit" : "d"
+      }
+    },
+    "doseAndRate" : [{
+      "doseQuantity" : {
+        "system" : "http://standardterms.edqm.eu",
+        "code" : "10219000"
+      }
+    }]
+  }]
+}

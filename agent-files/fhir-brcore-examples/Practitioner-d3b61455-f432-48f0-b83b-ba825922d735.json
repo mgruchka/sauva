@@ -1,0 +1,68 @@
+{
+  "resourceType" : "Practitioner",
+  "id" : "d3b61455-f432-48f0-b83b-ba825922d735",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: Practitioner d3b61455-f432-48f0-b83b-ba825922d735</b></p><a name=\"d3b61455-f432-48f0-b83b-ba825922d735\"> </a><a name=\"hcd3b61455-f432-48f0-b83b-ba825922d735\"> </a><p><b>identifier</b>: Cartão nacional de saúde/123456789101112\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>name</b>: Maria Clara Oliveira (Official)</p><p><b>telecom</b>: <a href=\"tel:+552198765-4321\">+55 21 98765-4321</a>, <a href=\"mailto:maria.oliveira@example.com\">maria.oliveira@example.com</a></p><p><b>address</b>: Av. Central, 456, Bairro Centro, Rio de Janeiro, RJ, 20000-000(work)</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td><td><b>Period</b></td><td><b>Issuer</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"https://terminologia.saude.gov.br/fhir/NamingSystem-cns.html\" title=\"CARTÃO NACIONAL DE SAÚDE\">NamingSystemCNS</a>/225125789542376</td><td><span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO 225125}\">MEDICO CLINICO</span></td><td>2010-01-01 --&gt; (em curso)</td><td><a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></td></tr></table></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "HC",
+        "display" : "Health Card Number"
+      }],
+      "text" : "Cartão nacional de saúde"
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cns",
+    "value" : "123456789101112"
+  }],
+  "active" : true,
+  "name" : [{
+    "use" : "official",
+    "family" : "Oliveira",
+    "given" : ["Maria",
+    "Clara"]
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55 21 98765-4321",
+    "use" : "work"
+  },
+  {
+    "system" : "email",
+    "value" : "maria.oliveira@example.com",
+    "use" : "work"
+  }],
+  "address" : [{
+    "use" : "work",
+    "type" : "both",
+    "text" : "Av. Central, 456, Bairro Centro, Rio de Janeiro, RJ, 20000-000",
+    "line" : ["Av. Central, 456"],
+    "city" : "Rio de Janeiro",
+    "state" : "RJ",
+    "postalCode" : "20000-000",
+    "country" : "Brasil"
+  }],
+  "qualification" : [{
+    "identifier" : [{
+      "system" : "https://saude.gov.br/fhir/sid/cns",
+      "value" : "225125789542376"
+    }],
+    "code" : {
+      "coding" : [{
+        "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRCBO",
+        "code" : "225125",
+        "display" : "MEDICO CLINICO"
+      }]
+    },
+    "period" : {
+      "start" : "2010-01-01"
+    },
+    "issuer" : {
+      "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+      "display" : "Hospital Sírio-Libanês"
+    }
+  }]
+}

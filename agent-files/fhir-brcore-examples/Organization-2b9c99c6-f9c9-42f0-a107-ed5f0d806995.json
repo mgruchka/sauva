@@ -1,0 +1,92 @@
+{
+  "resourceType" : "Organization",
+  "id" : "2b9c99c6-f9c9-42f0-a107-ed5f0d806995",
+  "language" : "pt-BR",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><p class=\"res-header-id\"><b>Narrativa gerada: Organization 2b9c99c6-f9c9-42f0-a107-ed5f0d806995</b></p><a name=\"2b9c99c6-f9c9-42f0-a107-ed5f0d806995\"> </a><a name=\"hc2b9c99c6-f9c9-42f0-a107-ed5f0d806995\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>identifier</b>: Tax ID number/12345678909\u00a0(utilização:\u00a0official,\u00a0), Provider number/7654321\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude 22}\">Consultório Médico</span></p><p><b>name</b>: Consultório Dr. José Silva</p><p><b>alias</b>: Consultório José Silva</p><p><b>telecom</b>: <a href=\"tel:+55-11-98765-4321\">+55-11-98765-4321</a>, <a href=\"mailto:contato@consultoriojosesilva.com.br\">contato@consultoriojosesilva.com.br</a></p><p><b>address</b>: Rua das Clínicas, 123 São Paulo SP 01000-000 BR (work)</p><blockquote><p><b>contact</b></p><p><b>purpose</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/contactentity-type ADMIN}\">Administrative</span></p><p><b>name</b>: Secretaria Administrativa</p><p><b>telecom</b>: <a href=\"tel:+55-11-98765-4321\">+55-11-98765-4321</a>, <a href=\"mailto:administracao@consultoriojosesilva.com.br\">administracao@consultoriojosesilva.com.br</a></p></blockquote></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "TAX",
+        "display" : "Tax ID number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cpf",
+    "value" : "12345678909",
+    "assigner" : {
+      "display" : "Número do CPF"
+    }
+  },
+  {
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "PRN",
+        "display" : "Provider number"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cnes",
+    "value" : "7654321",
+    "assigner" : {
+      "display" : "Número CNES - Cadastro Nacional de Estabelecimentos de Saúde"
+    }
+  }],
+  "active" : true,
+  "type" : [{
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+      "code" : "22",
+      "display" : "CONSULTORIO ISOLADO"
+    }],
+    "text" : "Consultório Médico"
+  }],
+  "name" : "Consultório Dr. José Silva",
+  "alias" : ["Consultório José Silva"],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55-11-98765-4321",
+    "use" : "work"
+  },
+  {
+    "system" : "email",
+    "value" : "contato@consultoriojosesilva.com.br",
+    "use" : "work"
+  }],
+  "address" : [{
+    "use" : "work",
+    "type" : "physical",
+    "line" : ["Rua das Clínicas, 123"],
+    "city" : "São Paulo",
+    "district" : "Centro",
+    "state" : "SP",
+    "postalCode" : "01000-000",
+    "country" : "BR"
+  }],
+  "contact" : [{
+    "purpose" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/contactentity-type",
+        "code" : "ADMIN",
+        "display" : "Administrative"
+      }]
+    },
+    "name" : {
+      "text" : "Secretaria Administrativa"
+    },
+    "telecom" : [{
+      "system" : "phone",
+      "value" : "+55-11-98765-4321",
+      "use" : "work"
+    },
+    {
+      "system" : "email",
+      "value" : "administracao@consultoriojosesilva.com.br",
+      "use" : "work"
+    }]
+  }]
+}

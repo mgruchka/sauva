@@ -1,0 +1,42 @@
+{
+  "resourceType" : "Organization",
+  "id" : "ubs-vila-esperanca",
+  "meta" : {
+    "profile" : ["https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: Organization ubs-vila-esperanca</b></p><a name=\"ubs-vila-esperanca\"> </a><a name=\"hcubs-vila-esperanca\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-br-core-organization.html\">BRCoreOrganization</a></p></div><p><b>identifier</b>: Provider number/9990001\u00a0(utilização:\u00a0official,\u00a0)</p><p><b>active</b>: true</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude 2}\">CENTRO DE SAUDE/UNIDADE BASICA</span></p><p><b>name</b>: UBS Vila Esperança</p><p><b>alias</b>: UBS Vila Esperança</p><p><b>address</b>: Rua das Flores, 100 São Paulo SP 03600-000 BR (work)</p></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "PRN"
+      }]
+    },
+    "system" : "https://saude.gov.br/fhir/sid/cnes",
+    "value" : "9990001"
+  }],
+  "active" : true,
+  "type" : [{
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRTipoEstabelecimentoSaude",
+      "code" : "2",
+      "display" : "CENTRO DE SAUDE/UNIDADE BASICA"
+    }]
+  }],
+  "name" : "UBS Vila Esperança",
+  "alias" : ["UBS Vila Esperança"],
+  "address" : [{
+    "use" : "work",
+    "type" : "physical",
+    "line" : ["Rua das Flores, 100"],
+    "city" : "São Paulo",
+    "district" : "Vila Esperança",
+    "state" : "SP",
+    "postalCode" : "03600-000",
+    "country" : "BR"
+  }]
+}

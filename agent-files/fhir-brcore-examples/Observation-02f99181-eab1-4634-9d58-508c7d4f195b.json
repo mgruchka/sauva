@@ -1,0 +1,38 @@
+{
+  "resourceType" : "Observation",
+  "id" : "02f99181-eab1-4634-9d58-508c7d4f195b",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Narrativa gerada: Observation 02f99181-eab1-4634-9d58-508c7d4f195b</b></p><a name=\"02f99181-eab1-4634-9d58-508c7d4f195b\"> </a><a name=\"hc02f99181-eab1-4634-9d58-508c7d4f195b\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Códigos:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Códigos:{http://loinc.org 11640-0}\">Total de gravidezes</span></p><p><b>subject</b>: <a href=\"Patient-c3a40500-5fe8-47f1-b21a-dce205e6c617.html\">Ana Beatriz</a></p><p><b>effective</b>: 2024-12-19 14:30:00+0000</p><p><b>performer</b>: <a href=\"Practitioner-d3b61455-f432-48f0-b83b-ba825922d735.html\">Maria Clara</a></p><p><b>value</b>: 1 1<span style=\"background: LightGoldenRodYellow\"> (Detalhes: UCUM código1 = '1')</span></p></div>"
+  },
+  "status" : "final",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+      "code" : "social-history",
+      "display" : "Social History"
+    }]
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "11640-0",
+      "display" : "Births.total"
+    }],
+    "text" : "Total de gravidezes"
+  },
+  "subject" : {
+    "reference" : "Patient/c3a40500-5fe8-47f1-b21a-dce205e6c617",
+    "display" : "Ana Beatriz"
+  },
+  "effectiveDateTime" : "2024-12-19T14:30:00Z",
+  "performer" : [{
+    "reference" : "Practitioner/d3b61455-f432-48f0-b83b-ba825922d735",
+    "display" : "Maria Clara"
+  }],
+  "valueQuantity" : {
+    "value" : 1,
+    "system" : "http://unitsofmeasure.org",
+    "code" : "1"
+  }
+}

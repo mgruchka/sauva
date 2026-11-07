@@ -1,0 +1,49 @@
+{
+  "resourceType" : "Location",
+  "id" : "9fea09cf-0529-4f7d-bad0-80cd5fd00cba",
+  "language" : "pt-BR",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"pt-BR\" lang=\"pt-BR\"><p class=\"res-header-id\"><b>Narrativa gerada: Location 9fea09cf-0529-4f7d-bad0-80cd5fd00cba</b></p><a name=\"9fea09cf-0529-4f7d-bad0-80cd5fd00cba\"> </a><a name=\"hc9fea09cf-0529-4f7d-bad0-80cd5fd00cba\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Língua: pt-BR</p></div><p><b>status</b>: Active</p><p><b>name</b>: Clínica Geral - Enfermaria Norte</p><p><b>alias</b>: Clínica Geral</p><p><b>description</b>: Localização destinada à internação de pacientes clínicos gerais.</p><p><b>mode</b>: Instance</p><p><b>type</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado 148}\">HOSPITAL DIA</span></p><p><b>telecom</b>: <a href=\"tel:+55-11-3394-0203\">+55-11-3394-0203</a></p><p><b>address</b>: Rua Dona Adma Jafet, 91 3º Andar - Ala Norte São Paulo SP 01308-050 BR (work)</p><p><b>physicalType</b>: <span title=\"Códigos:{https://terminologia.saude.gov.br/fhir/CodeSystem/BRInstalacoesFisicas 42}\">SALA DE ACOLHIMENTO COM CLASSIFICACAO DE RISCO</span></p><p><b>managingOrganization</b>: <a href=\"Organization-1428c345-c221-411f-880f-6fb163817387.html\">Hospital Sírio-Libanês</a></p></div>"
+  },
+  "status" : "active",
+  "name" : "Clínica Geral - Enfermaria Norte",
+  "alias" : ["Clínica Geral"],
+  "description" : "Localização destinada à internação de pacientes clínicos gerais.",
+  "mode" : "instance",
+  "type" : [{
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRServicoEspecializado",
+      "code" : "148",
+      "display" : "HOSPITAL DIA"
+    }],
+    "text" : "HOSPITAL DIA"
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+55-11-3394-0203",
+    "use" : "work"
+  }],
+  "address" : {
+    "use" : "work",
+    "type" : "physical",
+    "line" : ["Rua Dona Adma Jafet, 91",
+    "3º Andar - Ala Norte"],
+    "city" : "São Paulo",
+    "district" : "Bela Vista",
+    "state" : "SP",
+    "postalCode" : "01308-050",
+    "country" : "BR"
+  },
+  "physicalType" : {
+    "coding" : [{
+      "system" : "https://terminologia.saude.gov.br/fhir/CodeSystem/BRInstalacoesFisicas",
+      "code" : "42",
+      "display" : "SALA DE ACOLHIMENTO COM CLASSIFICACAO DE RISCO"
+    }]
+  },
+  "managingOrganization" : {
+    "reference" : "Organization/1428c345-c221-411f-880f-6fb163817387",
+    "display" : "Hospital Sírio-Libanês"
+  }
+}
