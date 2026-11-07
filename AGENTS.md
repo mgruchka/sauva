@@ -8,7 +8,9 @@ Produto brasileiro para registros de saúde; interface, mensagens ao usuário e 
 - Antes de uma decisão de produto ou arquitetura não resolvida, pare a parte dependente e pergunte ao Marcos. Informe a alternativa recomendada e seu efeito. Correções locais e detalhes mecânicos dentro da tarefa podem prosseguir.
 - Preserve agent-files/ como material de referência. Não suponha que exemplos sejam bundles clinicamente coerentes ou validados.
 - O orquestrador define testes e critérios; execute os testes fornecidos. Não altere testes para acomodar falhas, nem invente novos testes/contratos sem apresentar a necessidade.
-- Não crie subagentes. Não faça deploy, merge ou push sem solicitação. Não substitua alterações do usuário.
+- Não crie subagentes. Não substitua alterações do usuário. Deploy, merge e force-push não autorizados.
+- Handoff aprovado: commits e push normal de arquivos revisados da tarefa para dev/foundation estão autorizados, incluindo checkpoint da fundação 01. Use allowlist e revise staged diff. O orquestrador publica tarefas; o agente local publica código e relatório; pare ao final para revisão.
+- Se uma tarefa antiga proibir commit/push, a autorização explícita de handoff na tarefa atual prevalece para seus arquivos e checkpoint. Nunca inclua .env, credenciais, bancos ou material desconhecido.
 
 ## Economia de contexto e chamadas
 - Use rg para localizar símbolos e leia trechos relevantes. Não despeje o repositório, lockfiles, SVGs, bundles completos ou PDFs no contexto.
