@@ -51,7 +51,8 @@ def main():
     os.environ["FHIR_PROMPT_APPROVED"] = "true"
     os.environ.setdefault("GEMINI_MIN_INTERVAL_SECONDS", "15")
     from app.conversion import gemini_convert_file
-    from app.fhir import validate_bundle
+    from app.fhir import validate_bundle, normalize_bundle_ids
+    from uuid import NAMESPACE_URL, uuid5
 
     output = ROOT / "generated" / "demo-gemini"
     output.mkdir(parents=True, exist_ok=True)
@@ -98,7 +99,9 @@ def main():
             candidate = output / (name + ".candidate.json")
             save(candidate, payload)
             entry["candidate"] = candidate.name
-            payload = validate_bundle(payload)
+            payload = validate_bundle(normalize_bundle_ids(
+                payload, namespace=uuid5(NAMESPACE_URL, 'sauva-demo:' + name),
+            ))
             target = output / (name + ".fhir.json")
             save(target, payload)
             entry.update({

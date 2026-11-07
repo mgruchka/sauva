@@ -1,7 +1,7 @@
 # Estado
-
-- Fluxo Gemini-only sincronizado e verificado localmente, sem Cloud Vision.
-- Testes: chamada direta do pytest encontrou 5 erros de setup por `.env` não carregado; com `load_dotenv` antes dos mesmos arquivos, **11 passed, 7 subtests passed in 11.52s**.
-- Exemplos reais: `example_text.pdf` e `example_text-1.jpeg` geraram JSON com validação estrutural; `example_text-2.jpeg` falhou em `ValueError: Tipo de recurso inválido.` O candidato contém `ClinicalImpression`, fora de `SUPPORTED_TYPES`. Sem retry; zero chamadas Vision. Radiografia segue pendente.
-- Resultados publicáveis em `demo-results/gemini-only/`; ledger e saídas completas permanecem em `generated/demo-gemini/` fora do Git. Fidelidade clínica e BR Core não verificados.
-- Próxima ação: revisão do candidato e decisão sobre `ClinicalImpression` versus mapeamento para recurso suportado. Não executar inferência adicional sem essa decisão.
+- Gemini-only executado localmente pelo worker: dois documentos passaram no validador anterior; o terceiro produziu candidato bloqueado por ClinicalImpression. Nenhum retry Vision.
+- Revisão do orquestrador: ClinicalImpression suportado com campos/referências verificados; UUIDs e dois aliases CPF/CNS normalizados no backend, sem alterar valores clínicos.
+- Três artefatos normalizados validados offline em demo-results/gemini-only-normalized/, sem chamada Google adicional. Cinco regressões com SDK simulado passaram; quantidade de testes existentes mantida.
+- Fidelidade ainda parcial: faltam campos estruturados em relação às transcrições e há paráfrase no manuscrito. Ver docs/reviews/05-offline-fhir.md.
+- Próxima ação local: sincronizar e executar scripts/revalidate_saved.py para atualizar ledger sem nova inferência. Não precisa repetir os testes Gemini.
+- Novos prompts melhoram preservação de dados, mas não foram reavaliados por nova chamada real. Conformidade completa BR Core e imagens médicas continuam pendentes.

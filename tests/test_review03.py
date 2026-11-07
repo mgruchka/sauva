@@ -11,7 +11,7 @@ from unittest.mock import patch
 import sys
 
 from app.conversion import gemini_convert, gemini_convert_file
-from app.fhir import validate_bundle
+from app.fhir import validate_bundle, normalize_bundle_ids
 
 
 def prescription():
@@ -68,12 +68,58 @@ class Review03Tests(unittest.TestCase):
         invalid["entry"][2]["resource"]["medicationCodeableConcept"] = {"text": "Outro"}
         with self.assertRaises(ValueError):
             validate_bundle(invalid)
+        value["entry"][0]["resource"]["identifier"] = [{
+            "system": "http://www.saude.gov.br/fhir/sid/cpf", "value": "fixture-123",
+        }]
+        original = deepcopy(value)
+        namespace = "00000000-0000-4000-8000-000000000001"
+        normalized = normalize_bundle_ids(value, namespace=namespace)
+        self.assertEqual(value, original)
+        self.assertEqual(normalize_bundle_ids(value, namespace=namespace), normalized)
+        validate_bundle(normalized)
+        self.assertEqual(
+            normalized["entry"][2]["resource"]["medicationReference"]["reference"],
+            normalized["entry"][1]["fullUrl"],
+        )
+        identifier = normalized["entry"][0]["resource"]["identifier"][0]
+        self.assertEqual(identifier["value"], "fixture-123")
+        self.assertEqual(identifier["system"], "https://saude.gov.br/fhir/sid/cpf")
+        invalid = deepcopy(normalized)
+        invalid["entry"][1]["fullUrl"] = "urn:uuid:not-a-uuid"
+        with self.assertRaises(ValueError):
+            validate_bundle(invalid)
+        invalid = deepcopy(value)
+        invalid["entry"][2]["resource"]["subject"]["reference"] = "Patient/missing"
+        with self.assertRaises(ValueError):
+            validate_bundle(normalize_bundle_ids(invalid, namespace=namespace))
 
-    def test_invented_resource_is_rejected(self):
+    def test_resource_types_and_clinical_impression_required_fields(self):
         value = prescription()
         value["entry"][1]["resource"]["resourceType"] = "ImaginaryResource"
         with self.assertRaises(ValueError):
             validate_bundle(value)
+        value = prescription()
+        value["entry"].append({
+            "fullUrl": "ClinicalImpression/i",
+            "resource": {"resourceType": "ClinicalImpression", "id": "i",
+                         "status": "completed", "subject": {"reference": "Patient/p"},
+                         "summary": "Avaliação documentada no exemplo sintético"},
+        })
+        validate_bundle(value)
+        for change in ("missing_status", "bad_status", "missing_subject", "wrong_subject"):
+            with self.subTest(change=change):
+                invalid = deepcopy(value)
+                target = invalid["entry"][-1]["resource"]
+                if change == "missing_status":
+                    target.pop("status")
+                elif change == "bad_status":
+                    target["status"] = "unknown"
+                elif change == "missing_subject":
+                    target.pop("subject")
+                else:
+                    target["subject"] = {"reference": "Medication/m"}
+                with self.assertRaises(ValueError):
+                    validate_bundle(invalid)
 
     def test_gemini_two_calls_timeout_no_retry_and_client_closed(self):
         state, modules = google_fakes()

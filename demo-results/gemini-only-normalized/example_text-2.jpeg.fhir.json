@@ -1,0 +1,63 @@
+{
+  "resourceType": "Bundle",
+  "id": "9fe7a0df-898a-5115-a84e-b17dbae68c57",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:d47b59dd-9032-589f-a5c6-c8d5dfa95658",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "d47b59dd-9032-589f-a5c6-c8d5dfa95658",
+        "name": [
+          {
+            "text": "Julia Silva de Oliveira"
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://saude.gov.br/fhir/sid/cpf",
+            "value": "37122457840"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2718c299-8a8d-57eb-a43e-4f9b4c248156",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "2718c299-8a8d-57eb-a43e-4f9b4c248156",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "enxaqueca"
+        },
+        "subject": {
+          "reference": "urn:uuid:d47b59dd-9032-589f-a5c6-c8d5dfa95658"
+        },
+        "recordedDate": "2024-09-07"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0beb4073-f91a-56cf-9546-826065929473",
+      "resource": {
+        "resourceType": "ClinicalImpression",
+        "id": "0beb4073-f91a-56cf-9546-826065929473",
+        "status": "completed",
+        "subject": {
+          "reference": "urn:uuid:d47b59dd-9032-589f-a5c6-c8d5dfa95658"
+        },
+        "date": "2024-09-07",
+        "assessor": {
+          "display": "Maria Clara Gonçalves Dias"
+        },
+        "summary": "Paciente relata dor constante de enxaqueca sem melhora mesmo com uso contínuo de medicação."
+      }
+    }
+  ]
+}

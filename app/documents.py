@@ -15,7 +15,7 @@ from app.auth import COOKIE
 from app.conversion import gemini_convert, gemini_convert_file
 from app.db import _session_factory, get_db
 from app.extraction import extract, normalize_jpeg, pdf_pages
-from app.fhir import validate_bundle
+from app.fhir import validate_bundle, normalize_bundle_ids
 from app.models import AuthSession, Document, User
 from app.security import token_digest
 
@@ -78,7 +78,7 @@ def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jo
             doc.extracted_text = extracted
             doc.extracted_at = datetime.now(timezone.utc)
             db.commit()
-            payload = validate_bundle(payload)
+            payload = validate_bundle(normalize_bundle_ids(payload, namespace=doc.id))
             doc.fhir_payload = payload
             doc.validation_level = "structural"
             doc.status, doc.stage = "ready", "completed"
