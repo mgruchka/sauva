@@ -12,7 +12,7 @@ def main() -> int:
     os.chdir(root)
     load_dotenv(root / ".env", override=False)
     import pytest
-    targets = sys.argv[1:] or ["tests/test_auth.py", "tests/test_health.py", "tests/test_documents.py", "tests/test_prototype.py", "tests/test_review03.py"]
+    targets = sys.argv[1:] or ["tests/test_auth.py", "tests/test_health.py", "tests/test_documents.py", "tests/test_prototype.py", "tests/test_review03.py", "tests/test_delete_documents.py"]
     return pytest.main([*targets, "-q"])
 
 
