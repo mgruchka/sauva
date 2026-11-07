@@ -12,7 +12,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.auth import COOKIE
-from app.conversion import gemini_convert, vision_ocr
+from app.conversion import gemini_convert, gemini_convert_file
 from app.db import _session_factory, get_db
 from app.extraction import extract, normalize_jpeg, pdf_pages
 from app.fhir import validate_bundle
@@ -29,7 +29,7 @@ class Rename(BaseModel):
 def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jobs_inline: bool) -> APIRouter:
     router = APIRouter(prefix="/documents")
     executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="sauva-document") if not jobs_inline else None
-    ocr = ocr or vision_ocr
+    use_gemini_file = ocr is None and converter is None
     converter = converter or gemini_convert
     root = storage_dir.resolve()
 
@@ -63,14 +63,22 @@ def router_for(storage_dir: Path, allowed_origin: str | None, ocr, converter, jo
             doc.status, doc.stage = "processing", "extracting"
             db.commit()
             data = Path(doc.storage_path).read_bytes()
-            extracted = extract(data, doc.file_format, ocr)
-            if not extracted.strip():
-                raise ValueError("Não foi possível extrair texto.")
+            if use_gemini_file:
+                doc.stage = "converting"
+                db.commit()
+                extracted, payload = gemini_convert_file(data, doc.file_format)
+            else:
+                # Adaptadores injetados: mantém os contratos dos testes sem API real.
+                extracted = extract(data, doc.file_format, ocr)
+                if not extracted.strip():
+                    raise ValueError("Não foi possível extrair texto.")
+                doc.stage = "converting"
+                db.commit()
+                payload = converter(extracted)
             doc.extracted_text = extracted
             doc.extracted_at = datetime.now(timezone.utc)
-            doc.stage = "converting"
             db.commit()
-            payload = validate_bundle(converter(extracted))
+            payload = validate_bundle(payload)
             doc.fhir_payload = payload
             doc.validation_level = "structural"
             doc.status, doc.stage = "ready", "completed"

@@ -1,12 +1,16 @@
 """Regressões da revisão 03, sem banco, rede ou SDKs Google reais."""
 from copy import deepcopy
 import json
+from io import BytesIO
+
+from PIL import Image
+from reportlab.pdfgen.canvas import Canvas
 from types import ModuleType, SimpleNamespace
 import unittest
 from unittest.mock import patch
 import sys
 
-from app.conversion import gemini_convert, vision_ocr
+from app.conversion import gemini_convert, gemini_convert_file
 from app.fhir import validate_bundle
 
 
@@ -24,8 +28,8 @@ def prescription():
 
 def google_fakes():
     state = SimpleNamespace(
-        client_args=[], calls=[], closed=0, vision_args=[], vision_closed=0,
-        reason="STOP", facts=[{"text": "Fato sintético"}], ocr_text="Texto sintético",
+        client_args=[], calls=[], closed=0,
+        reason="STOP", facts=[{"text": "Fato sintético"}], transcription="Texto sintético",
     )
     google = ModuleType("google")
     google.__path__ = []
@@ -36,7 +40,7 @@ def google_fakes():
 
     def generate_content(**kwargs):
         state.calls.append(kwargs)
-        payload = {"facts": state.facts} if len(state.calls) == 1 else prescription()
+        payload = {"facts": state.facts, "transcription": state.transcription} if len(state.calls) == 1 else prescription()
         return SimpleNamespace(
             text=json.dumps(payload),
             candidates=[SimpleNamespace(finish_reason=state.reason)],
@@ -49,26 +53,10 @@ def google_fakes():
             close=lambda: setattr(state, "closed", state.closed + 1),
         )
     genai.Client, genai.types, google.genai = client, types, genai
-    cloud = ModuleType("google.cloud")
-    cloud.__path__ = []
-    vision = ModuleType("google.cloud.vision")
-
-    def detect(**kwargs):
-        state.vision_args.append(kwargs)
-        return SimpleNamespace(
-            error=SimpleNamespace(message=""),
-            text_annotations=[SimpleNamespace(description=state.ocr_text)],
-        )
-    vision.Image = lambda **kwargs: SimpleNamespace(**kwargs)
-    vision.ImageAnnotatorClient = lambda: SimpleNamespace(
-        text_detection=detect,
-        transport=SimpleNamespace(close=lambda: setattr(
-            state, "vision_closed", state.vision_closed + 1,
-        )),
-    )
-    cloud.vision, google.cloud = vision, cloud
-    modules = {"google": google, "google.genai": genai, "google.genai.types": types,
-               "google.cloud": cloud, "google.cloud.vision": vision}
+    types.Part = SimpleNamespace(from_bytes=lambda **kwargs: SimpleNamespace(
+        inline_data=SimpleNamespace(**kwargs),
+    ))
+    modules = {"google": google, "google.genai": genai, "google.genai.types": types}
     return state, modules
 
 
@@ -92,6 +80,7 @@ class Review03Tests(unittest.TestCase):
         with patch.dict(sys.modules, modules), patch.dict("os.environ", {
             "ENABLE_REAL_GOOGLE": "true", "FHIR_PROMPT_APPROVED": "true",
             "GEMINI_API_KEY": "synthetic-test-key", "GEMINI_MODEL": "synthetic-model",
+            "GEMINI_MIN_INTERVAL_SECONDS": "0",
         }):
             self.assertEqual(gemini_convert("Fato sintético")["resourceType"], "Bundle")
         self.assertEqual(len(state.calls), 2)
@@ -121,22 +110,44 @@ class Review03Tests(unittest.TestCase):
                 self.assertEqual(len(state.calls), expected)
                 self.assertEqual(state.closed, 1 if expected else 0)
 
-    def test_vision_disables_retry_closes_transport_and_rejects_empty_text(self):
-        for text in ("Texto sintético", " "):
-            state, modules = google_fakes()
-            state.ocr_text = text
-            with patch.dict(sys.modules, modules), patch.dict("os.environ", {
-                "ENABLE_REAL_GOOGLE": "true", "FHIR_PROMPT_APPROVED": "true",
-            }):
-                if text.strip():
-                    self.assertEqual(vision_ocr(b"synthetic-image"), text)
+    def test_scanned_pdf_and_jpeg_use_two_gemini_calls_without_vision(self):
+        picture = BytesIO()
+        Image.new("RGB", (80, 60), "white").save(picture, format="JPEG")
+
+        def pdf_bytes(text):
+            output = BytesIO()
+            pdf = Canvas(output)
+            for _ in range(2):
+                if text:
+                    pdf.drawString(40, 750, text)
+                pdf.showPage()
+            pdf.save()
+            return output.getvalue()
+
+        cases = [
+            (picture.getvalue(), "jpg", "image/jpeg"),
+            (pdf_bytes(""), "pdf", "application/pdf"),
+            (pdf_bytes("Texto selecionavel"), "pdf", None),
+        ]
+        for data, fmt, expected_mime in cases:
+            with self.subTest(fmt=fmt, multimodal=bool(expected_mime)):
+                state, modules = google_fakes()
+                with patch.dict(sys.modules, modules), patch.dict("os.environ", {
+                    "ENABLE_REAL_GOOGLE": "true", "FHIR_PROMPT_APPROVED": "true",
+                    "GEMINI_API_KEY": "synthetic-test-key", "GEMINI_MODEL": "synthetic-model",
+                    "GEMINI_MIN_INTERVAL_SECONDS": "0",
+                }):
+                    transcription, value = gemini_convert_file(data, fmt)
+                self.assertTrue(transcription)
+                self.assertEqual(value["resourceType"], "Bundle")
+                self.assertEqual(len(state.calls), 2)
+                self.assertEqual(state.closed, 1)
+                self.assertFalse(state.client_args[0]["vertexai"])
+                contents = state.calls[0]["contents"]
+                if expected_mime:
+                    self.assertEqual(contents[1].inline_data.mime_type, expected_mime)
                 else:
-                    with self.assertRaises(RuntimeError):
-                        vision_ocr(b"synthetic-image")
-            self.assertEqual(len(state.vision_args), 1)
-            self.assertIsNone(state.vision_args[0]["retry"])
-            self.assertEqual(state.vision_args[0]["timeout"], 30)
-            self.assertEqual(state.vision_closed, 1)
+                    self.assertIn("Texto selecionavel", json.loads(contents)["documento"])
 
 
 if __name__ == "__main__":

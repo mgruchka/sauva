@@ -1,9 +1,9 @@
 # Estado
-
-- Tarefa 03 implementada: upload Texto PDF/JPEG, extração local/OCR por página, processamento serial, conversão Gemini em duas etapas, validação estrutural FHIR, listagem/status/renomeação/download JSON e interface mínima em pt-BR.
-- Migração `0002_documents` executada localmente com saída 0. Dependências mínimas instaladas e versões fixadas.
-- `scripts/run_tests.py`: **11 passed in 6.01s** (5 documentos, 5 auth, 1 health). `node --check web/app.js`, `pip check`, `git diff --check`: OK. Home, JS e logo: HTTP 200 via TestClient.
-- Interface: assets servidos; caminhada manual no navegador não realizada. Nenhuma chamada Google real executada. Adaptadores simulados usados nos testes.
-- Pendências: revisão dos rascunhos `prompts/01-extract.md` e `prompts/02-map-fhir.md` por Marcos antes de ativar as flags reais; credenciais/modelo Google para smoke futuro. A validação é estrutural, sem conformidade BR Core ou correção clínica certificadas.
-- Revisão do orquestrador: corrigidos medication[x]/tipos FHIR e limites de execução Google; cinco regressões sem rede/banco passaram. Runner atualizado para 16 testes, ainda não reexecutados em Windows/PostgreSQL após essas correções.
-- Próxima ação: seguir docs/REVIEW03_SMOKE.md, executar os 16 testes; revisar prompts com Marcos e só então realizar um smoke sintético. Nenhuma chamada Google feita pelo orquestrador. Não iniciar funcionalidades adiadas.
+- Autenticação e fluxo de documentos já implementados. Worker reportou onze testes aprovados antes da revisão/refatoração.
+- Refatoração atual aprovada por Marcos: Gemini-only, sem Cloud Vision. PDF textual extrai localmente; JPEG/PDF digitalizado/misto recebe transcrição/fatos multimodais e mapeamento em até duas chamadas Gemini por documento.
+- Adaptadores mockados atualizados: cinco testes executados pelo orquestrador, aprovados, incluindo PDF textual, PDF digitalizado de duas páginas e JPEG. Nenhuma API real ou banco foi usado pelo orquestrador.
+- requirements.txt sem google-cloud-vision. Nenhuma dependência adicionada.
+- scripts/validate_demo_files.py atualizado: ledger novo generated/demo-gemini/, erros sanitizados, candidato preservado e retry somente explícito. Vision antigo não será repetido.
+- Próxima ação local: seguir docs/GEMINI_ONLY.md. Executar onze testes relevantes e os três exemplos de texto com chave local; publicar resultados para revisão. Não repetir auth nem reimplementar a aplicação.
+- Nenhum teste Gemini real foi executado neste ambiente, que não tem acesso ao .env do Marcos.
+- Radiografia example_imaging.jpeg continua com pipeline pendente; não contar como aprovada.

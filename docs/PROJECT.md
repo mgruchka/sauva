@@ -6,13 +6,13 @@ Fonte: agent-files/SAUVA_ORCH_PROMPT.docx e decisões posteriores do Marcos em 0
 - Protótipo web brasileiro: funcionários administrativos/provedores organizam documentos de pacientes. Não presumir que usuário autenticado seja o paciente do registro.
 - FastAPI + PostgreSQL + HTML/JS/Tailwind. Drive por usuário: uploads, nomes, pastas, listagem, JSON/PDF e compartilhamento.
 - Formatos iniciais PDF e JPEG. Rótulos: Texto e Exame de imagem.
-- Texto em JPEG e PDFs digitalizados passam por OCR Cloud Vision. PDFs com texto extraível usam extração local; PDFs mistos precisam de tratamento por página.
+- Atualização aprovada: somente Gemini Developer API. JPEG e PDF digitalizado/misto usam leitura multimodal Gemini para transcrição/fatos em uma chamada, depois mapeamento FHIR em outra. PDF totalmente textual usa extração local. Cloud Vision e suas credenciais não são necessários.
 - Texto extraído -> Gemini -> bundle FHIR orientado por BR Core. Não inventar achados ausentes.
 - Exames de imagem são imagens médicas reais, não apenas laudos. Interpretação automática ainda NÃO foi autorizada como decisão clínica/produto.
 - Exportação FHIR -> conteúdo estruturado por Gemini -> PDF renderizado pelo backend. Template do Marcos pendente. Não integrar Bahmni/fhir-pdf.
-- GPT/Codex para desenvolvimento; Gemini/Vision continuam no runtime do produto.
+- GPT/Codex para desenvolvimento; somente Gemini no runtime de IA do produto.
 - Compartilhamento: destinatário registrado, um documento, credencial de uso único e expiração de 24 h. Usuário quer abrir, visualizar e baixar. Duração e encerramento da sessão de acesso ainda precisam de definição.
-- Prompt de conversão precisa de revisão do Marcos antes de uso no pipeline real.
+- Marcos autorizou os prompts atuais para teste limitado com os exemplos fictícios; validação clínica/BR Core completa permanece pendente.
 - Testes definidos pelo orquestrador, no máximo cinco por tarefa, mais integração apropriada.
 - Marcos confirmou contas de demonstração pré-criadas em vez de autocadastro.
 - Entrega prioritária aprovada: Texto PDF/JPEG até 10 MB e 10 páginas, originais em uploads/ por usuário, processamento serial com status. Pastas, imagens médicas, PDF de saída e compartilhamento ficam para depois do caminho upload -> OCR/extração -> Gemini -> baixar JSON.
@@ -37,4 +37,4 @@ Não enviar toda a pasta de exemplos para cada inferência. O orquestrador selec
 6. PDF: receber template, formato da resposta Gemini, tratamento de campos ausentes e imagens.
 7. Conversão: execução síncrona ou processamento em segundo plano com status; limites e repetição/custo.
 
-Credenciais não são pré-requisito da fundação. Antes de smoke tests reais: projeto Google, Vision habilitado e faturamento, autenticação local configurada, GEMINI_API_KEY e modelo configurado, banco local. Não expor valores ao orquestrador.
+Credenciais não são pré-requisito da fundação. Antes de smoke tests reais: GEMINI_API_KEY e GEMINI_MODEL configurados para Gemini Developer API; banco local para uso da aplicação. Não requer Vision, ADC ou faturamento Vision. Não expor valores ao orquestrador.
