@@ -27,7 +27,7 @@ Fonte: agent-files/SAUVA_ORCH_PROMPT.docx e decisões posteriores do Marcos em 0
 Não enviar toda a pasta de exemplos para cada inferência. O orquestrador selecionará exemplos mínimos e pertinentes. O bundle principal contém múltiplos pacientes; não assumir que primeiro Patient seja o sujeito do documento.
 
 ## Decisões para as respectivas tarefas
-1. Auth: contas demo confirmadas; email versus username, sessão e desenho da tarefa 02 ainda sujeitos à confirmação; posicionamento e texto do consentimento. A política de senha não deve bloquear login de uma senha existente apenas por regra de cadastro.
+1. Auth: comportamento aprovado: duas contas demo com mesmas permissões, email/senha, cookie de sessão de 8 horas, logout com revogação, sem autocadastro ou recuperação de senha. Posicionamento e texto do consentimento ficam para a interface. A política de senha não deve bloquear login de uma senha existente apenas por regra de cadastro.
 2. Arquivos: limites de tamanho/páginas e retenção dos originais; local de armazenamento. PDFs mistos e arquivos inválidos.
 3. FHIR: versão/pacote BR Core, recursos mínimos por tipo, validação estrutural e de perfil, tratamento de informações ausentes.
 4. Imagem: preservar/anexar apenas ou interpretar; associação ao paciente; representação e obtenção da imagem no PDF. Não desenvolver diagnóstico automaticamente.
