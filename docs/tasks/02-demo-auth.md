@@ -1,6 +1,6 @@
-# 02 — contas de demonstração e autenticação (proposta para confirmação)
+# 02 — contas de demonstração e autenticação
 
-Estado: NÃO EXECUTAR IMPLEMENTAÇÃO AINDA. Marcos confirmou contas pré-criadas. Confirmar o desenho abaixo antes de programar. O orquestrador fornecerá os testes executáveis após essa confirmação; os casos abaixo já definem o aceite.
+Estado: comportamento aprovado por Marcos em 07/11/2026 (duas contas, email/senha, cookie de 8 horas, logout com revogação, sem cadastro/recuperação). Aguardar o pacote de testes executáveis do orquestrador antes da implementação; não é necessário solicitar novamente aprovação desse comportamento. Os casos abaixo definem o aceite.
 
 ## Contexto mínimo
 Leia AGENTS.md, docs/PROJECT.md, docs/STATUS.md, app/main.py, requirements*.txt e esta tarefa. Não ler estudo, exemplos FHIR ou identidade visual. Não alterar a fundação aprovada sem necessidade demonstrada.
@@ -11,7 +11,7 @@ Não iniciar uploads, OCR, frontend, FHIR ou compartilhamento.
 - Backend FastAPI e banco PostgreSQL, conforme escopo original.
 - A saúde pública GET /health deve continuar funcionando sem Google ou banco.
 
-## Desenho proposto (pendente de confirmação de Marcos)
+## Desenho da autenticação
 - Duas contas independentes: demo1@sauva.example e demo2@sauva.example. Ambas com mesmas permissões; representam proprietário e destinatário apenas durante a demonstração. Não criar papel administrador sem necessidade.
 - Login com email/senha; sem verificação de email, recuperação de senha ou rota de cadastro.
 - Sessões opacas persistidas no PostgreSQL, identificadas por cookie HttpOnly, SameSite=Lax, Path=/, duração de 8 horas; logout revoga a sessão no servidor.
