@@ -34,7 +34,7 @@ def test_health_starts_without_service_configuration_or_remote_tcp(monkeypatch):
     original_create_connection = socket.create_connection
 
     def check_address(address, family=None):
-        if family == getattr(socket, "AF_UNIX", None) or _is_loopback(address):
+        if (family is not None and family == getattr(socket, "AF_UNIX", None)) or _is_loopback(address):
             return
         raise AssertionError("A fundação não deve abrir conexões TCP remotas")
 
