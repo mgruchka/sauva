@@ -2,12 +2,12 @@
 
 **Implementação disponível; integração PostgreSQL pendente.**
 
-Worker: commit adfd1302a52ceed81845e899c94271c678b12da1. Entregou modelos User/AuthSession, Alembic, PostgreSQL/psycopg, Argon2id, seed idempotente e login/me/logout. Cookie HttpOnly com duração de oito horas; token aleatório, apenas SHA-256 persistido; origem exata obrigatória nos POSTs.
+Entrega: modelos User/AuthSession, Alembic, PostgreSQL/psycopg, Argon2id, seed idempotente e login/me/logout. Cookie HttpOnly de oito horas, apenas SHA-256 do token persistido e origem exata obrigatória nos POSTs.
 
-Verificação reportada pelo worker: dependências instaladas; importação, compilação, Argon2id e health OK. Pytest: um health aprovado e cinco erros de setup auth por TEST_DATABASE_URL ausente. Migração e seed não executados. Nenhuma chamada Google.
+Verificação anterior: importação, compilação, Argon2id e health OK; pytest teve um health aprovado e cinco erros de setup auth por TEST_DATABASE_URL ausente. Nenhuma chamada Google.
 
-Revisão estática do orquestrador em 07/11/2026: corrigido defeito no comando de migração, que não carregava DATABASE_URL de .env conforme README. Adicionados scripts/run_tests.py para carregar configuração antes do pytest e docs/POSTGRES_LOCAL.md com criação dos bancos separados. Testes originais preservados.
+O orquestrador ajustou o carregamento de `.env` na migração e adicionou `scripts/run_tests.py` e `docs/POSTGRES_LOCAL.md`. Testes originais preservados.
 
-Validação do orquestrador: sintaxe dos dois arquivos Python modificados aprovada. Não executou integração PostgreSQL, migração ou seed; não confirma execução Windows.
+Verificação local após `git pull --ff-only origin dev/foundation`: PostgreSQL 18 encontrado fora do PATH, serviço `postgresql-x64-18` em execução. A conexão sem senha (`psql -w -h 127.0.0.1 -U postgres -d postgres -tAc 'SELECT 1'`) retornou `fe_sendauth: no password supplied`. `.env` não existia; foi criado a partir de `.env.example` e confirmado como ignorado pelo Git. Nenhuma credencial real foi lida ou publicada. Migração, seed e `scripts/run_tests.py` não executados porque ainda faltam acesso local e configuração dos bancos; cinco testes auth permanecem não aprovados.
 
-Próximo passo: sincronizar, seguir docs/POSTGRES_LOCAL.md e executar migração, seed e scripts/run_tests.py. Atualizar este relatório com resultados reais e publicar em dev/foundation. Integração ainda não aprovada; não iniciar 03.
+Ação do Marcos: usar SQL Shell com a senha administrativa local, conferir `\du` e `\l`, criar apenas role/bancos ausentes e definir senha da role conforme docs/POSTGRES_LOCAL.md. Preencher `.env` com as duas URLs e senhas demo sem enviá-las pelo chat. Depois executar migração, seed e testes. **Integração PostgreSQL pendente; não iniciar 03.**
